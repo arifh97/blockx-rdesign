@@ -51,12 +51,12 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
   }, [balance]);
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-start justify-between">
       {/* Balance Section */}
       <div>
-        <p className="text-sm font-medium mb-1">Balance</p>
+        <p className="text-sm lg:text-lg font-medium mb-1 text-white/50">Balance</p>
         <div className="flex items-center gap-2">
-          <h2 className="text-2xl">
+          <h2 className="text-2xl lg:text-[34px] font-medium text-white flex">
             {isLoading ? (
               'Loading...'
             ) : (
@@ -89,18 +89,26 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
 
       {/* Action Buttons */}
       <div className="flex gap-3">
-        <Button className='w-[130px] h-[44px] text-md relative bg-gradient-to-b from-[#FFFFFF05] to-[#FFFFFF15] border border-transparent text-white hover:bg-[#FFFFFF1A] shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] hover:shadow-[inset_0_3px_6px_rgba(0,0,0,0.4)] before:absolute before:inset-0 before:rounded-[100px] before:p-[1px] before:bg-gradient-to-b before:from-[#FFFFFF40] before:to-[#FFFFFF10] before:-z-10 before:content-[""]'>
+        <Button className='w-32.5 h-11 text-base relative text-white bg-transparent'>
+          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
           <Image src="/icons/deposit.svg" alt="Deposit" width={15} height={15} />
           Deposit
         </Button>
         <Button
           asChild
-          className='w-[130px] h-[44px] text-md relative bg-gradient-to-b from-[#FFFFFF05] to-[#FFFFFF15] border border-transparent text-white hover:bg-[#FFFFFF1A] shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] hover:shadow-[inset_0_3px_6px_rgba(0,0,0,0.4)] before:absolute before:inset-0 before:rounded-[100px] before:p-[1px] before:bg-gradient-to-b before:from-[#FFFFFF40] before:to-[#FFFFFF10] before:-z-10 before:content-[""]'
+          className='w-[130px] h-[44px] text-base relative text-white bg-transparent'
         >
           <Link href="/withdraw">
+          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
             <Image src="/icons/withdraw.svg" alt="Withdraw" width={15} height={15} />
             Withdraw
           </Link>
+        </Button>
+
+        <Button className='w-[130px] h-[44px] text-base relative text-[#071017] bg-[#41FDFE]'>
+          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+            <Image src="swap.svg" alt="Withdraw" width={22} height={22} />
+            Swap
         </Button>
         {/* <Button className="min-w-[150px] min-h-[50px] text-md">
           <ArrowRightLeft className="size-6" />
