@@ -1,0 +1,1 @@
+ALTER TABLE "bids" ALTER COLUMN "chain_id" SET DATA TYPE integer;

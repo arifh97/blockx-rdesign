@@ -1,0 +1,1 @@
+ALTER TABLE "bids" ADD COLUMN "payment_window" integer DEFAULT 1800 NOT NULL;

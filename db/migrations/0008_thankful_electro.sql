@@ -1,0 +1,1 @@
+ALTER TABLE "orders" ADD COLUMN "fiat_currency" varchar(3);
