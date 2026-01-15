@@ -46,8 +46,9 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6">
-      <Card className="p-6 rounded-3xl border-0 gap-y-2">
+    <div className="max-w-335 mx-auto space-y-6">
+      <Card className="p-6 rounded-3xl gap-y-2 bg-[#071017] backdrop-blur-[6px] overflow-hidden relative z-1 border border-solid border-[rgba(255,255,255,0.05)]">
+        <img src="balance-card-shap.svg" className='backdrop-blur-sm absolute top-0 left-0 -z-1' alt="" />
         {/* Top Section: Balance Card */}
         <BalanceCard initialTokenAddress={selectedTokenAddress} />
 

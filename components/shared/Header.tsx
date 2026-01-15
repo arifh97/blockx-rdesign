@@ -39,13 +39,13 @@ export function Header() {
   const displayName = dbUser?.username || dbUser?.email || shortAddress;
   const displaySecondary = dbUser?.username || dbUser?.email ? shortAddress : dbUser?.email || '';
   return (
-    <header className="h-16 top-0 z-10 bg-accent/20">
+    <header className="h-23.75 top-0 z-10 bg-[rgba(255,255,255,0.01)] backdrop-blur-[27.5px] border-b border-solid border-[rgba(255,255,255,0.02)]">
       <div className="h-full px-6 flex items-center justify-between">
         {/* Search */}
-        <div className="flex-1 max-w-md">
+        <div className="flex-1 max-w-80">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input placeholder="Search" className="pl-10 bg-[#DBECFD0A] rounded-xl" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input placeholder="Search" className="pl-10 bg-[rgba(219,236,253,0.04)] rounded-full border border-solid! border-[rgba(219,236,253,0.02)]! text-[rgba(219,236,253,0.50)] placeholder:text-[rgba(219,236,253,0.50)]" />
           </div>
         </div>
 
@@ -54,10 +54,11 @@ export function Header() {
           <ChainSwitcher />
           
           <Button variant="ghost" size="icon" className="rounded-full bg-[#02101152]">
-            <HelpCircle className="h-5 w-5 text-white" />
+            <HelpCircle className="h-6 w-6 text-white" />
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full bg-[#02101152]">
-            <Bell className="h-5 w-5 text-white" />
+          <Button variant="ghost" size="icon" className="rounded-full bg-[#02101152] relative">
+            <Bell className="h-6 w-6 text-white" />
+            <span className='absolute top-1.75 right-1.75 w-2.75 h-2.75 border border-solid border-[#145989] rounded-full bg-[#41FDFE] z-1'></span>
           </Button>
           
           {/* User Dropdown Menu */}
