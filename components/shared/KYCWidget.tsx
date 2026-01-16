@@ -6,22 +6,75 @@ import { ShieldCheck, Download } from 'lucide-react';
 
 export function KYCWidget() {
   return (
-    <Card className="p-4 rounded-3xl border-blue-500/20" style={{ backgroundImage: 'url(/kyc-card-bg.png)', backgroundSize: '100% auto' }}>
+    <Card
+      className="p-5 pt-6 rounded-[29px] bg-cover bg-top-center border-0"
+      style={{ backgroundImage: 'url(/kyc-card-bg.png)', backgroundSize: '100% 100%' }}
+    >
       <div className="flex flex-col items-center text-center space-y-3">
-        <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-          <ShieldCheck className="h-6 w-6 text-white" />
+        <div className="w-16 h-16  rounded-full shadow-[-10px_29px_54.6px_-11px_#071017] flex items-center justify-center  mb-10">
+          {/* <ShieldCheck className="h-6 w-6 text-white" /> */}
+          <img src="rocket.png" alt="" />
         </div>
 
         <div>
-          <h3 className="font-semibold text-sm mb-1">Complete KYC</h3>
-          <p className="text-xs text-muted-foreground">
-            Verify Your Identity To Unlock Higher Limits And Send Up To $50,000
+          <h3 className="font-semibold text-sm md:text-2xl mb-2.5">Trade Smarter with</h3>
+          <p className="text-xs md:text-base text-white/50 font-normal mb-2">
+            Trade smarter with Block — fast, secure crypto trading.
           </p>
         </div>
 
-        <Button className="w-full min-h-[50px] bg-[#FFFFFF05] border border-[#FFFFFF0D] hover:bg-[#FFFFFF0D] h-8 text-xs text-white">
-          <Download className="h-3 w-3 mr-1" />
-          Start Verification
+        <Button className="w-full min-h-12.5 group border border-[#FFFFFF0D] bg-transparent h-8 text-sm font-medium text-white relative overflow-hidden z-1">
+          <img src="btn-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+          {/* <Download className="h-3 w-3 mr-1" /> */}
+          Get Started
+          <svg
+            className="group-hover:rotate-45 transition-all duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+          >
+            <g clipPath="url(#clip0_2019_3139)">
+              <path
+                d="M5.08743 5.401L3.35471 5.53487C2.87257 5.57213 2.44315 5.82483 2.17652 6.22814L0.178211 9.25046C-0.0240135 9.55632 -0.0561617 9.93909 0.0921575 10.2744C0.240516 10.6097 0.545396 10.8434 0.907698 10.8995L2.49421 11.1452C2.86534 9.1757 3.75377 7.21103 5.08743 5.401Z"
+                fill="white"
+              />
+              <path
+                d="M8.85471 17.5058L9.10045 19.0923C9.15658 19.4546 9.39025 19.7595 9.72552 19.9078C9.86501 19.9696 10.0127 20 10.1596 20C10.3659 20 10.5709 19.9399 10.7495 19.8218L13.7719 17.8235C14.1752 17.5568 14.4279 17.1274 14.4651 16.6453L14.599 14.9126C12.7889 16.2463 10.8243 17.1347 8.85471 17.5058Z"
+                fill="white"
+              />
+              <path
+                d="M8.25802 16.4061C8.31309 16.4061 8.36848 16.4016 8.42376 16.3924C9.24891 16.2544 10.0442 16.022 10.8029 15.7178L4.28223 9.19714C3.97801 9.95577 3.74559 10.7511 3.60762 11.5763C3.55325 11.9015 3.66235 12.2329 3.89551 12.4661L7.53392 16.1045C7.72751 16.2981 7.9888 16.4061 8.25802 16.4061Z"
+                fill="white"
+              />
+              <path
+                d="M18.4052 8.86724C20.0009 5.78234 20.06 2.52236 19.9766 0.993469C19.948 0.469606 19.5304 0.0519527 19.0065 0.0233983C18.7575 0.00980461 18.4625 0 18.13 0C16.4204 0 13.7153 0.258943 11.1327 1.59475C9.08031 2.65635 6.38904 4.99387 4.80124 8.06579C4.81999 8.08044 4.83831 8.09599 4.85557 8.11326L11.8868 15.1445C11.904 15.1617 11.9195 15.18 11.9342 15.1987C15.0061 13.6109 17.3436 10.9196 18.4052 8.86724ZM11.6287 4.22809C12.7709 3.08587 14.6296 3.08576 15.7719 4.22809C16.3252 4.78141 16.6299 5.51714 16.6299 6.29968C16.6299 7.08221 16.3252 7.81795 15.7719 8.37126C15.2008 8.94231 14.4504 9.2279 13.7003 9.22797C12.95 9.22801 12.1999 8.94247 11.6287 8.37126C11.0754 7.81795 10.7706 7.08221 10.7706 6.29968C10.7706 5.51714 11.0754 4.78141 11.6287 4.22809Z"
+                fill="white"
+              />
+              <path
+                d="M12.4574 7.54265C13.1427 8.228 14.258 8.22804 14.9433 7.54265C15.2753 7.21062 15.4582 6.76921 15.4582 6.29968C15.4582 5.83015 15.2753 5.38874 14.9433 5.05675C14.6007 4.71405 14.1505 4.54272 13.7003 4.54272C13.2502 4.54272 12.8001 4.71405 12.4574 5.05675C12.1254 5.38874 11.9425 5.83015 11.9425 6.29968C11.9425 6.76921 12.1254 7.21065 12.4574 7.54265Z"
+                fill="white"
+              />
+              <path
+                d="M0.597859 16.4819C0.74782 16.4819 0.897781 16.4247 1.01216 16.3102L2.92516 14.3972C3.15399 14.1684 3.15399 13.7974 2.92516 13.5686C2.69637 13.3398 2.32536 13.3398 2.09653 13.5686L0.183523 15.4816C-0.0453052 15.7104 -0.0453052 16.0814 0.183523 16.3102C0.297937 16.4246 0.447898 16.4819 0.597859 16.4819Z"
+                fill="white"
+              />
+              <path
+                d="M4.67831 15.3218C4.44952 15.0929 4.0785 15.0929 3.84967 15.3218L0.171743 18.9997C-0.057085 19.2285 -0.057085 19.5995 0.171743 19.8283C0.286157 19.9427 0.436118 19.9999 0.586079 19.9999C0.73604 19.9999 0.886001 19.9427 1.00038 19.8283L4.67827 16.1504C4.90713 15.9216 4.90713 15.5506 4.67831 15.3218Z"
+                fill="white"
+              />
+              <path
+                d="M5.60278 17.0748L3.68981 18.9878C3.46098 19.2167 3.46098 19.5876 3.68981 19.8165C3.80422 19.9309 3.95418 19.9881 4.10411 19.9881C4.25403 19.9881 4.40403 19.9309 4.5184 19.8165L6.43141 17.9035C6.66024 17.6746 6.66024 17.3036 6.43141 17.0748C6.20262 16.846 5.83161 16.846 5.60278 17.0748Z"
+                fill="white"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_2019_3139">
+                <rect width="20" height="20" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
         </Button>
       </div>
     </Card>

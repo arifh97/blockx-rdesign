@@ -176,3 +176,7 @@
     scrollbar-color: oklch(0.92 0.17 195) oklch(0.2 0.02 240);
   }
 }
+.lucide-chevron-down{
+  stroke: #fff;
+  opacity: 1;
+}

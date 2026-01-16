@@ -44,7 +44,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
   const token = getTokenByAddressAcrossChains(bid.fromToken as Address);
   const tokenDecimals = token?.decimals || 18;
   const tokenLogoURI = token?.logoURI;
-  
+
   // Get tokens for current chain (for DepositDialog)
   const tokens = getTokensByChain(chainId);
 
@@ -60,7 +60,10 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
 
   // Calculate receive amount: amount * price (2 decimals)
   const receiveAmountNum = sellAmountNum * actualPrice;
-  const receiveAmount = receiveAmountNum.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const receiveAmount = receiveAmountNum.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
 
   // Validation
   const isAmountValid = sellAmountNum >= minAmount && sellAmountNum <= maxAmount && sellAmountNum > 0;
@@ -96,7 +99,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
       const result = await createOrder({
         bidHash: bid.bidHash,
         amount: amountInWei.toString(),
-        selectedPaymentAccountId: selectedPaymentMethodId,
+        selectedPaymentAccountId: selectedPaymentMethodId
       });
 
       // Redirect to order page on success
@@ -111,9 +114,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
 
   const bidPaymentMethodCodes: string[] = bid.paymentMethodCodes || [];
   // Map payment method codes to display names
-  const bidPaymentMethodNames = bidPaymentMethodCodes
-    .map(code => PAYMENT_METHODS[code]?.name || code)
-    .join(', ');
+  const bidPaymentMethodNames = bidPaymentMethodCodes.map((code) => PAYMENT_METHODS[code]?.name || code).join(', ');
 
   // Fetch user payment accounts
   const { data: paymentAccountsData, isLoading: isPaymentAccountsLoading } = useQuery({
@@ -146,7 +147,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
   const activeWallet = wallets[0];
   const handleSwitchChain = async (targetChainId: number) => {
     if (!activeWallet || !authenticated) {
-      toast.error("No wallet connected");
+      toast.error('No wallet connected');
       return;
     }
 
@@ -156,8 +157,8 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
       toast.success(`Switched to ${chainName}`);
       setIsNetworkDialogOpen(false);
     } catch (error) {
-      console.error("Error switching chain:", error);
-      toast.error("Failed to switch chain");
+      console.error('Error switching chain:', error);
+      toast.error('Failed to switch chain');
     }
   };
 
@@ -166,59 +167,57 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
   const bidChainName = getChainName(bid.chainId);
 
   return (
-    <div className="bg-[#0A151C] rounded-xl p-6 border border-[#DBECFD20] relative">
+    <div className="relative">
       {/* Chain Icon - Top Right */}
-      {bidChainLogo && (
+      {/* {bidChainLogo && (
         <div className="absolute top-4 right-4" title={bidChainName}>
-          <Image
-            src={bidChainLogo}
-            alt={bidChainName}
-            width={28}
-            height={28}
-            className="rounded-full"
-          />
+          <Image src={bidChainLogo} alt={bidChainName} width={28} height={28} className="rounded-full" />
         </div>
-      )}
+      )} */}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Left Side - Advertiser's Terms */}
-        <div>
+        <div className="bg-[#0A151C] rounded-2xl p-6">
           <div className="space-y-4">
             <div>
-              <h3 className="text-sm font-semibold text-white mb-3 flex items-center gap-2">
+              <h3 className="text-base md:text-lg font-semibold text-white mb-3 flex items-center gap-2">
                 Advertiser&apos;s Terms <span className="text-red-500">*</span>
               </h3>
-              {bid.description ? (
-                <div className="text-sm text-muted-foreground whitespace-pre-line">
-                  {bid.description}
-                </div>
-              ) : (<span className="text-sm text-muted-foreground">No terms specified</span>)}
+              {/* {bid.description ? (
+                <div className="text-sm text-muted-foreground whitespace-pre-line">{bid.description}</div>
+              ) : (
+                <span className="text-sm text-muted-foreground">No terms specified</span>
+              )} */}
 
-              <ul className="space-y-3 text-sm text-muted-foreground mt-4">
-                  <li className="flex items-start gap-2">
-                    <span className="text-white mt-0.5">•</span>
-                    <span>
-                      Available Payment Methods:{' '}
-                      {isPaymentAccountsLoading ? 'Loading...' : (bidPaymentMethodNames || 'Not specified')}
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2 whitespace-break-spaces">
-                    <span className="text-white mt-0.5">•</span>
-                    <span>Please Complete Payment Within The Time Limit And Upload Proof Of Transfer If Possible.</span>
-                  </li>
-                </ul>
+              <ul className="space-y-4 text-sm md:text-base text-[rgba(219,236,253,0.50)] mt-4 capitalize leading-relaxed">
+                <li className="flex items-start gap-2">
+                  <span className="text-[rgba(219,236,253,0.50)]">•</span>
+                  <span className="text-wrap">
+                    No third-party payments are allowed. The sender’s bank account name must match the name verified on
+                    the platform.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2 whitespace-break-spaces">
+                  <span className="text-[rgba(219,236,253,0.50)]">•</span>
+                  <span>Available bank accounts for transfers: ADCB, Emirates NBD, Mashreq</span>
+                </li>
+                <li className="flex items-start gap-2 whitespace-break-spaces">
+                  <span className="text-[rgba(219,236,253,0.50)]">•</span>
+                  <span>Please complete payment within the time limit and upload proof of transfer if possible.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
         {/* Right Side - Sell Form */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-6">Sell {tokenSymbol}</h3>
+        <div className="bg-[#0A151C] rounded-2xl p-6">
+          <h3 className="text-lg font-semibold text-white mb-5">Sell {tokenSymbol}</h3>
 
-          <div className="space-y-6">
+          <div className="space-y-2">
             {/* You Sell */}
             <div className="bg-[#FFFFFF08] rounded-3xl p-6">
-              <Label htmlFor="sell-amount" className="text-sm text-muted-foreground mb-2 block">
+              <Label htmlFor="sell-amount" className="text-sm text-white/50 mb-2 block">
                 You sell
               </Label>
               <InputGroup className={`border-0 my-4 ${amountError ? 'border-red-500' : ''}`}>
@@ -228,7 +227,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                   step="0.01"
                   value={sellAmount}
                   onChange={(e) => setSellAmount(e.target.value)}
-                  className="!text-[32px] font-semibold h-auto px-0"
+                  className="text-2xl lg:text-[32px] px-0 font-semibold h-auto outline-none ring-0 focus:outline-none! focus:ring-0! focus-visible:outline-none! focus-visible:ring-0! text-white! placeholder:text-white"
                   placeholder="0"
                   min={minAmount}
                   max={maxAmount}
@@ -244,33 +243,34 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                   </div>
                 </InputGroupAddon>
               </InputGroup>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="space-y-1 mt-4">
+                <div className="flex items-center gap-2 text-sm text-[rgba(219,236,253,0.50)]">
                   <span>
                     Available: {availableBalance.toLocaleString()} {tokenSymbol}
                   </span>
-                  <DepositDialog 
-                    tokens={tokens} 
-                    defaultToken={bid.fromToken as Address}
-                  >
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="rounded-full size-6"
-                    >
-                      <Plus/>
+                  <DepositDialog tokens={tokens} defaultToken={bid.fromToken as Address}>
+                    <Button variant="ghost" size="sm" className="rounded-full size-6">
+                      <Plus />
                     </Button>
-                  </DepositDialog>
+                  </DepositDialog>{' '}
+                  <span className="text-xs">Add</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 text-sm text-[rgba(219,236,253,0.50)]">
                   <span>From Network: {networkName}</span>
                   <Dialog open={isNetworkDialogOpen} onOpenChange={setIsNetworkDialogOpen}>
                     <DialogTrigger asChild>
-                      <button className="text-primary hover:text-cyan-400 flex items-center gap-1">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <button className="text-primary hover:text-cyan-400 flex items-center gap-1 cursor-pointer">
+                        <svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
                           <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
                         </svg>
-                        Change
+                        <span className="text-xs">Change</span>
                       </button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-md border-[#FFFFFF1A]">
@@ -286,21 +286,13 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                           >
                             <div className="flex-shrink-0">
                               {logo ? (
-                                <Image 
-                                  src={logo} 
-                                  alt={name} 
-                                  width={32} 
-                                  height={32} 
-                                  className="rounded-full"
-                                />
+                                <Image src={logo} alt={name} width={32} height={32} className="rounded-full" />
                               ) : (
                                 <span className="text-2xl">{icon}</span>
                               )}
                             </div>
                             <span className="text-base font-medium flex-1 text-left">{name}</span>
-                            {chainId === chain.id && (
-                              <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                            )}
+                            {chainId === chain.id && <Check className="h-5 w-5 text-primary flex-shrink-0" />}
                           </button>
                         ))}
                       </div>
@@ -379,11 +371,10 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
               </Button>
             </div>
 
-           
             {/* Sell Button */}
-            <Button 
-              className="w-full font-semibold py-6 text-base" 
-              onClick={handleSell} 
+            <Button
+              className="w-full font-semibold py-6 text-base"
+              onClick={handleSell}
               disabled={!isAmountValid || !selectedPaymentMethodId || isCreatingOrder}
             >
               {isCreatingOrder ? 'Creating Order...' : `Sell ${tokenSymbol}`}

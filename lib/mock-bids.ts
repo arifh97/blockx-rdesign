@@ -33,8 +33,8 @@ export const mockBids: BidsWithUsers = [
       avatarUrl: null,
       kycLevel: 2,
       totalTrades: 47652,
-      successfulTrades: 47500,
-    },
+      successfulTrades: 47500
+    }
   },
   {
     id: 'mock-2',
@@ -61,8 +61,8 @@ export const mockBids: BidsWithUsers = [
       avatarUrl: null,
       kycLevel: 2,
       totalTrades: 12340,
-      successfulTrades: 12200,
-    },
+      successfulTrades: 12200
+    }
   },
   {
     id: 'mock-3',
@@ -89,8 +89,8 @@ export const mockBids: BidsWithUsers = [
       avatarUrl: null,
       kycLevel: 3,
       totalTrades: 8950,
-      successfulTrades: 8900,
-    },
+      successfulTrades: 8900
+    }
   },
   {
     id: 'mock-4',
@@ -117,8 +117,8 @@ export const mockBids: BidsWithUsers = [
       avatarUrl: null,
       kycLevel: 1,
       totalTrades: 2450,
-      successfulTrades: 2400,
-    },
+      successfulTrades: 2400
+    }
   },
   {
     id: 'mock-5',
@@ -145,8 +145,8 @@ export const mockBids: BidsWithUsers = [
       avatarUrl: null,
       kycLevel: 2,
       totalTrades: 15680,
-      successfulTrades: 15600,
-    },
+      successfulTrades: 15600
+    }
   },
   {
     id: 'mock-6',
@@ -173,7 +173,7 @@ export const mockBids: BidsWithUsers = [
       avatarUrl: null,
       kycLevel: 1,
       totalTrades: 5230,
-      successfulTrades: 5180,
-    },
-  },
+      successfulTrades: 5180
+    }
+  }
 ];

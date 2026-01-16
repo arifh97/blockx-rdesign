@@ -20,7 +20,7 @@ interface OrderWithUser extends Order {
 export function ActiveOrdersWidget() {
   const { user, authenticated } = usePrivy();
   const { refreshAndRetry } = useRefreshOnAuthError();
-  
+
   // Get user's wallet address
   const userAddress = user?.wallet?.address;
 
@@ -50,7 +50,7 @@ export function ActiveOrdersWidget() {
         return false;
       }
       return failureCount < 2;
-    },
+    }
   });
 
   const initialOrders = data || [];
@@ -68,13 +68,11 @@ export function ActiveOrdersWidget() {
       console.log('Order updated:', updatedOrder);
       // Refetch the active orders query
       refetch();
-    },
+    }
   });
 
   // Filter out completed and cancelled orders from realtime updates
-  const activeOrders = realtimeOrders.filter(
-    (order) => order.status !== 'completed' && order.status !== 'cancelled'
-  );
+  const activeOrders = realtimeOrders.filter((order) => order.status !== 'completed' && order.status !== 'cancelled');
 
   // Don't show widget if not authenticated, loading, or no active orders
   if (!authenticated || !userAddress || isLoading || activeOrders.length === 0) {
@@ -82,9 +80,10 @@ export function ActiveOrdersWidget() {
   }
 
   // Show only the first active order
-  const firstOrder = activeOrders[0] as OrderWithUser;
+  const firstOrder = activeOrders[1] as OrderWithUser;
   const otherParty = firstOrder.otherParty;
-  const otherPartyName = otherParty?.username || 
+  const otherPartyName =
+    otherParty?.username ||
     `${firstOrder.isMaker ? firstOrder.takerAddress : firstOrder.makerAddress}`.slice(0, 10) + '...';
   const otherPartyInitial = otherParty?.username?.charAt(0).toUpperCase() || 'U';
 
@@ -115,9 +114,7 @@ export function ActiveOrdersWidget() {
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-medium text-xs truncate">{otherPartyName}</p>
-            <p className="text-xs text-muted-foreground">
-              {firstOrder.isMaker ? 'Sell' : 'Buy'} USDT
-            </p>
+            <p className="text-xs text-muted-foreground">{firstOrder.isMaker ? 'Sell' : 'Buy'} USDT</p>
           </div>
           <p className="font-semibold text-xs">{firstOrder.fromAmount} USDT</p>
         </div>
@@ -129,19 +126,19 @@ export function ActiveOrdersWidget() {
               <MessageSquare className="h-3 w-3" />
             </Button>
           </Link>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="flex-1 h-8 text-xs px-1" 
+          <Button
+            variant="outline"
+            size="sm"
+            className="flex-1 h-8 text-xs px-1"
             title="Cancel Order - Not Implemented"
             disabled
           >
             <X className="h-3 w-3" />
           </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="flex-1 h-8 text-xs px-1" 
+          <Button
+            variant="outline"
+            size="sm"
+            className="flex-1 h-8 text-xs px-1"
             title="Mark as Paid - Not Implemented"
             disabled
           >
