@@ -98,7 +98,6 @@ function DialogTitle({ className, ...props }: React.ComponentProps<typeof Dialog
     />
   );
 }
-
 function DialogDescription({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Description>) {
   return (
     <DialogPrimitive.Description
