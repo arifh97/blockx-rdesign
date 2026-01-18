@@ -8,7 +8,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/u
 import { useTokenBalance } from '@/hooks/use-token-balance';
 import { getTokensByChain, NATIVE_TOKEN, type Token } from '@/lib/tokens';
 import { useChainId } from 'wagmi';
-
 interface BalanceCardProps {
   initialTokenAddress?: string;
 }
@@ -90,7 +89,7 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
       {/* Action Buttons */}
       <div className="flex gap-3">
         <Button className='w-32.5 h-11 text-base relative text-white bg-transparent'>
-          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+          <Image src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
           <Image src="/icons/deposit.svg" alt="Deposit" width={15} height={15} />
           Deposit
         </Button>
@@ -99,14 +98,14 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
           className='w-[130px] h-[44px] text-base relative text-white bg-transparent'
         >
           <Link href="/withdraw">
-          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+          <Image src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
             <Image src="/icons/withdraw.svg" alt="Withdraw" width={15} height={15} />
             Withdraw
           </Link>
         </Button>
 
         <Button className='w-[130px] h-[44px] text-base relative text-[#071017] bg-[#41FDFE]'>
-          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+          <Image src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
             <Image src="swap.svg" alt="Withdraw" width={22} height={22} />
             Swap
         </Button>

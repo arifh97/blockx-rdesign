@@ -4,10 +4,11 @@ import { Card } from '@/components/ui/card';
 import { getActiveBidsWithUsers, getActiveBidsCount } from '@/db/queries/bids';
 import { verifyAuthentication } from '@/lib/auth';
 import { getUserByPrivyId } from '@/db/queries/users';
+import Image from 'next/image';
 
 interface DashboardPageProps {
-  searchParams: Promise<{ 
-    token?: string; 
+  searchParams: Promise<{
+    token?: string;
     page?: string;
     payment?: string;
     amount?: string;
@@ -24,7 +25,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const paymentMethod = params.payment;
   const minAmount = params.amount;
   const userTradeType = params.type || 'buy'; // Default to 'buy' if not specified
-  
+
   const bidType = userTradeType === 'buy' ? 'sell' : userTradeType === 'sell' ? 'buy' : undefined;
 
   // Get current user's wallet address to exclude their bids
@@ -39,8 +40,16 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
 
   // Fetch bids excluding current user's bids with pagination and filters
   const [bids, totalCount] = await Promise.all([
-    getActiveBidsWithUsers(selectedTokenAddress, currentUserWallet, paymentMethod, minAmount, bidType, currentPage, PAGE_SIZE),
-    getActiveBidsCount(selectedTokenAddress, currentUserWallet, paymentMethod, minAmount, bidType),
+    getActiveBidsWithUsers(
+      selectedTokenAddress,
+      currentUserWallet,
+      paymentMethod,
+      minAmount,
+      bidType,
+      currentPage,
+      PAGE_SIZE
+    ),
+    getActiveBidsCount(selectedTokenAddress, currentUserWallet, paymentMethod, minAmount, bidType)
   ]);
 
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
@@ -48,16 +57,16 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   return (
     <div className="max-w-335 mx-auto space-y-6">
       <Card className="p-6 rounded-3xl gap-y-2 bg-[#071017] backdrop-blur-[6px] overflow-hidden relative z-1 border border-solid border-[rgba(255,255,255,0.05)]">
-        <img src="balance-card-shap.png" className='backdrop-blur-sm absolute top-0 left-0 -z-1 w-auto h-auto' alt="" />
+        <Image
+          src="balance-card-shap.png"
+          className="backdrop-blur-sm absolute top-0 left-0 -z-1 w-auto h-auto"
+          alt=""
+        />
         {/* Top Section: Balance Card */}
         <BalanceCard initialTokenAddress={selectedTokenAddress} />
 
         {/* Trading Table */}
-        <TradingTable 
-          bids={bids} 
-          currentPage={currentPage}
-          totalPages={totalPages}
-        />
+        <TradingTable bids={bids} currentPage={currentPage} totalPages={totalPages} />
       </Card>
     </div>
   );

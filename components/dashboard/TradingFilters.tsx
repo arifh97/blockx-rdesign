@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useEffect, useCallback, useState } from 'react';
 import { PAYMENT_METHODS, PAYMENT_METHOD_CODES } from '@/lib/constants';
-import { SUPPORTED_CHAINS } from '@/lib/chains';
+// import { SUPPORTED_CHAINS } from '@/lib/chains';
 import Image from 'next/image';
 
 export function TradingFilters() {
@@ -91,7 +91,7 @@ export function TradingFilters() {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all">
-            <img src="wallet.svg" alt="" /> Payment Methods
+            <Image src="wallet.svg" alt="" /> Payment Methods
           </SelectItem>
           {PAYMENT_METHOD_CODES.map((code) => (
             <SelectItem key={code} value={code}>

@@ -5,6 +5,7 @@ import { useLocalStorage } from 'usehooks-ts';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+
 import {
   Pagination,
   PaginationContent,
@@ -14,7 +15,7 @@ import {
   PaginationNext,
   PaginationPrevious
 } from '@/components/ui/pagination';
-import { Check } from 'lucide-react';
+// import { Check } from 'lucide-react';
 import { BidsWithUsers } from '@/db/queries/bids';
 import { getAvatarInitial, getCompletionRate, formatPrice } from '@/lib/table-column-helper';
 import { Badge } from '@/components/ui/badge';

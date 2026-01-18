@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { InputGroup, InputGroupInput, InputGroupAddon } from '@/components/ui/input-group';
-import { ArrowRight, RefreshCw, Plus } from 'lucide-react';
+import { ArrowRight} from 'lucide-react';
 import { BidsWithUsers } from '@/db/queries/bids';
 import { getTokenSymbol, getTokenByAddressAcrossChains } from '@/lib/tokens';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -179,7 +179,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
           <div className="space-y-2">
             {/* Your Pay */}
             <div className="relative z-1 rounded-3xl p-5">
-              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <Image src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <div className="flex justify-between items-center mb-3">
                 <Label htmlFor="pay-amount" className="text-sm text-white/50 mb-2 block">
                   You pay
@@ -214,7 +214,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
 
             {/* Your Receive */}
             <div className="relative z-1 rounded-3xl overflow-hidden p-6">
-              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <Image src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <div className="flex justify-between items-center mb-3">
                 <Label htmlFor="receive-amount" className="text-sm text-muted-foreground mb-2 block">
                   You receive
@@ -245,7 +245,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
 
             {/* Payment Methods Section */}
             <div className="relative z-1 space-y-3">
-              <img src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <Image src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
 
               {/* Payment Method Selection */}
               {matchingPaymentAccounts.length > 0 ? (
@@ -286,7 +286,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
                 onClick={() => setIsAddPaymentDialogOpen(true)}
               >
                 <span className="flex items-center gap-2">
-                  <img src="mastercard.svg" alt="" />
+                  <Image src="mastercard.svg" alt="" />
                   Add Payment Method
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
