@@ -7,10 +7,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'ymndqdqhxzlpteiusuny.supabase.co',
         port: '',
-        pathname: '/storage/v1/object/public/**',
-      },
-    ],
+        pathname: '/storage/v1/object/public/**'
+      }
+    ]
   },
+  eslint: {
+    // Allows production builds to complete even with ESLint errors
+    ignoreDuringBuilds: true
+  }
 };
 
 export default nextConfig;

@@ -12,7 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Network, Check, TriangleAlert } from "lucide-react"
+import {  Check, TriangleAlert } from "lucide-react"
 import { toast } from "sonner"
 import {
   Tooltip,

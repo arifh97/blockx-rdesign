@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { InputGroup, InputGroupInput, InputGroupAddon } from '@/components/ui/input-group';
-import { ArrowRight, Check, Plus, X } from 'lucide-react';
+import { ArrowRight, Check, Plus } from 'lucide-react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getPaymentAccountsAction } from '@/app/actions/user-payment-accounts';
 import { AddPaymentMethodDialog } from '@/components/payment/AddPaymentMethodDialog';
@@ -25,7 +25,6 @@ import { DepositDialog } from '@/components/shared/DepositDialog';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { usePrivy, useWallets } from '@privy-io/react-auth';
 import { useTokenBalance } from '@/hooks/use-token-balance';
-
 type SellExpandedViewProps = {
   bid: BidsWithUsers[number];
 };
@@ -157,14 +156,27 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
   const allPaymentOptions = matchingPaymentAccounts.length > 0 ? matchingPaymentAccounts : defaultPaymentMethods;
 
   // Filter accounts based on search
+  // const filteredAccounts = allPaymentOptions.filter((account) => {
+  //   if ('isDefault' in account) {
+  //     return account.name.toLowerCase().includes(search.toLowerCase());
+  //   }
+  //   const name = account.label || PAYMENT_METHODS[account.paymentMethod]?.name || account.paymentMethod;
+  //   return name.toLowerCase().includes(search.toLowerCase());
+  // });
+  // Filter accounts based on search
   const filteredAccounts = allPaymentOptions.filter((account) => {
-    if ('isDefault' in account) {
-      return account.name.toLowerCase().includes(search.toLowerCase());
+    let name: string;
+
+    if ('name' in account) {
+      // Default payment method with 'name' property
+      name = account.name;
+    } else {
+      // User's actual payment account
+      name = account.label || PAYMENT_METHODS[account.paymentMethod]?.name || account.paymentMethod;
     }
-    const name = account.label || PAYMENT_METHODS[account.paymentMethod]?.name || account.paymentMethod;
+
     return name.toLowerCase().includes(search.toLowerCase());
   });
-
   // Get fiat currency info
   const fiatCurrency = FIAT_CURRENCIES.find((c) => c.code === bid.fiatCurrency);
   const fiatLogoURI = fiatCurrency?.logoURI || '/currencies/aed2.png';
@@ -236,7 +248,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
           <div className="space-y-2">
             {/* You Sell */}
             <div className="rounded-lg overflow-hidden p-6 relative z-1">
-              <img src="trade-payment-box-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <Image src="trade-payment-box-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <Label htmlFor="sell-amount" className="text-sm text-white/50 mb-2 block">
                 You sell
               </Label>
@@ -325,7 +337,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
 
             {/* Your Receive */}
             <div className="bg-[#FFFFFF08] rounded-3xl p-6 relative z-1 overflow-hidden">
-              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <Image src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <Label htmlFor="receive-amount" className="text-sm font-semibold text-white/50 mb-2.75 block">
                 Your receive
               </Label>
@@ -364,7 +376,11 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                     focus-visible:outline-none focus-visible:ring-0
                     data-[state=open]:ring-0 cursor-pointer relative z-1 "
                 >
-                  <img src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+                  <Image
+                    src="buy-trade-payment-box-bg.png"
+                    className="absolute top-0 left-0 w-full h-full -z-1"
+                    alt=""
+                  />
                   <SelectValue className="text-white placeholder:text-white" placeholder="Select payment method" />
                 </SelectTrigger>
 
@@ -415,42 +431,34 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                   </div>
 
                   {/* List */}
+                  {/* List */}
                   <div className="max-h-60 overflow-y-auto px-2 pb-2 space-y-2">
                     {filteredAccounts.length > 0 ? (
                       filteredAccounts.map((account) => {
-                        // Check if it's a default payment method
-                        if ('isDefault' in account) {
-                          return (
-                            <SelectItem
-                              key={account.id}
-                              value={account.id}
-                              className="rounded-xl px-4 py-3.5 text-sm
-                                text-[rgba(219,236,253,0.70)]
-                                focus:bg-[#FFFFFF0F]
-                                bg-[rgba(255,255,255,0.01)]
-                                data-[state=checked]:bg-[#FFFFFF14]
-                                cursor-pointer"
-                            >
-                              {account.name}
-                            </SelectItem>
-                          );
-                        }
+                        // Determine the display name
+                        let displayName: string;
 
-                        // User's actual payment method
-                        const methodInfo = PAYMENT_METHODS[account.paymentMethod];
-                        const label = account.label || methodInfo?.name || account.paymentMethod;
+                        if ('name' in account) {
+                          // Default payment method
+                          displayName = account.name;
+                        } else {
+                          // User's actual payment method
+                          const methodInfo = PAYMENT_METHODS[account.paymentMethod];
+                          displayName = account.label || methodInfo?.name || account.paymentMethod;
+                        }
 
                         return (
                           <SelectItem
                             key={account.id}
                             value={account.id}
-                            className="rounded-xl px-4 py-3 text-sm
-                              text-[#C7D2DA]
-                              focus:bg-[#FFFFFF0F]
-                                bg-[rgba(255,255,255,0.01)]
-                              data-[state=checked]:bg-[#FFFFFF14]"
+                            className="rounded-xl px-4 py-3.5 text-sm
+                            text-[rgba(219,236,253,0.70)]
+                            focus:bg-[#FFFFFF0F]
+                            bg-[rgba(255,255,255,0.01)]
+                            data-[state=checked]:bg-[#FFFFFF14]
+                            cursor-pointer"
                           >
-                            {label}
+                            {displayName}
                           </SelectItem>
                         );
                       })
@@ -527,7 +535,6 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
 
                           <div className="flex items-center gap-3">
                             {!hasBalance && <span className="text-sm text-white/50">No balance</span>}
-                           
                           </div>
                         </button>
                       );

@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { PAYMENT_METHODS } from '@/lib/constants';
+import Image from "next/image";
+
 import {
   createPaymentAccountAction,
   getPaymentAccountsAction,
@@ -235,7 +237,7 @@ export function AddPaymentMethodDialog({ open, onOpenChange, onSave }: AddPaymen
               : `Add ${PAYMENT_METHODS[selectedType || '']?.name || 'Payment Method'}`}
           </DialogTitle>
           <div className="bank-account text-base md:text-lg font-medium bg-[rgba(219,236,253,0.03)] p-5 rounded-[20px] mt-4 relative z-1 overflow-hidden">
-            <img src="ba-shap.png" className="absolute top-0 right-0 h-full w-auto -z-1" alt="" />
+            <Image src="ba-shap.png" className="absolute top-0 right-0 h-full w-auto -z-1" alt="" />
             <h3 className="text-[#41FDFE]">Mashreq Bank Account</h3>
             <ul className="bg-[rgba(219,236,253,0.03)] rounded-[12px] p-4 mt-3 space-y-2">
               <li>Satoshi Nakamoto</li>

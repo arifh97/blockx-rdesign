@@ -8,7 +8,7 @@ import { useConfirmAndReleaseOrder } from '@/hooks/use-confirm-and-release-order
 import { useCancelOrder } from '@/hooks/use-cancel-order'
 import { useRealtimeOrder } from '@/hooks/use-realtime-order'
 import { RealtimeIndicator } from '@/components/shared/RealtimeIndicator'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { toast } from 'sonner'
 import { getTokenByAddress } from '@/lib/tokens'
 import { getFiatCurrencyInfo } from '@/lib/constants'

@@ -29,7 +29,7 @@ export async function verifyOrderAccess(orderId: string) {
   const isTaker = order.takerId === user.id
 
   if (!isMaker && !isTaker) {
-    throw new Error("Unauthorized: You don't have access to this order")
+    throw new Error("Unauthorized: You don&apos;t have access to this order")
   }
 
   return {
