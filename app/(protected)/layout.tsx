@@ -3,7 +3,6 @@
 import { Sidebar } from '@/components/shared/Sidebar';
 import { Header } from '@/components/shared/Header';
 import { useTokenRefresh } from '@/hooks/use-token-refresh';
-import Image from "next/image";
 
 
 export default function ProtectedLayout({ children }: { children: React.ReactNode }) {
