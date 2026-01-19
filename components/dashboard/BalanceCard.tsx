@@ -89,8 +89,8 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
       {/* Action Buttons */}
       <div className="flex gap-3">
         <Button className='w-32.5 h-11 text-base relative text-white bg-transparent'>
-          <Image src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
-          <Image src="/icons/deposit.svg" alt="Deposit" width={15} height={15} />
+          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+          <img src="/icons/deposit.svg" alt="Deposit" width={15} height={15} />
           Deposit
         </Button>
         <Button
@@ -98,15 +98,15 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
           className='w-[130px] h-[44px] text-base relative text-white bg-transparent'
         >
           <Link href="/withdraw">
-          <Image src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
-            <Image src="/icons/withdraw.svg" alt="Withdraw" width={15} height={15} />
+          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+            <img src="/icons/withdraw.svg" alt="Withdraw" width={15} height={15} />
             Withdraw
           </Link>
         </Button>
 
         <Button className='w-[130px] h-[44px] text-base relative text-[#071017] bg-[#41FDFE]'>
-          <Image src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
-            <Image src="swap.svg" alt="Withdraw" width={22} height={22} />
+          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+            <img src="swap.svg" alt="Withdraw" width={22} height={22} />
             Swap
         </Button>
         {/* <Button className="min-w-[150px] min-h-[50px] text-md">

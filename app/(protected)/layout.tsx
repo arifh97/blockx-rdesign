@@ -23,7 +23,7 @@ export default function ProtectedLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="flex min-h-screen relative">
-      <Image className="absolute top-0 right-0 w-[60%] h-auto -z-1" src="body-shap1.svg" alt="" />
+      <img className="absolute top-0 right-0 w-[60%] h-auto -z-1" src="body-shap1.svg" alt="" />
       {/* Sidebar */}
       <Sidebar />
 
@@ -33,8 +33,8 @@ export default function ProtectedLayout({ children }: { children: React.ReactNod
 
         <main className="flex-1 p-6 overflow-auto">{children}</main>
       </div>
-      <Image className="body-shap2 absolute bottom-0 left-0 w-[40%] h-[60%] -z-1" src="body-shap2.svg" alt="" />
-      <Image className="body-shap3 absolute bottom-0 right-0 w-[20%] h-full -z-1" src="body-shap3.svg" alt="" />
+      <img className="body-shap2 absolute bottom-0 left-0 w-[40%] h-[60%] -z-1" src="body-shap2.svg" alt="" />
+      <img className="body-shap3 absolute bottom-0 right-0 w-[20%] h-full -z-1" src="body-shap3.svg" alt="" />
     </div>
   );
 }

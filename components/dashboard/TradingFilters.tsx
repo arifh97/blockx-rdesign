@@ -71,7 +71,7 @@ export function TradingFilters() {
               <SelectItem key={token.address} value={token.address}>
                 <div className="flex items-center gap-2">
                   {token.logoURI ? (
-                    <Image src={token.logoURI} alt={token.symbol} width={20} height={20} className="rounded-full" />
+                    <img src={token.logoURI} alt={token.symbol} width={20} height={20} className="rounded-full" />
                   ) : (
                     <span className="w-5 h-5 flex items-center justify-center text-sm bg-muted rounded-full">
                       {token.symbol.charAt(0)}
@@ -91,7 +91,7 @@ export function TradingFilters() {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="all">
-            <Image src="wallet.svg" alt="" /> Payment Methods
+            <img src="wallet.svg" alt="" /> Payment Methods
           </SelectItem>
           {PAYMENT_METHOD_CODES.map((code) => (
             <SelectItem key={code} value={code}>

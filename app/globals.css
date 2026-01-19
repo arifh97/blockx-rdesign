@@ -123,8 +123,15 @@
     line-height: 100%;
     letter-spacing: 0%;
   }
-  
-  h1, h2, h3, h4, h5, h6, strong, b {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
     font-weight: 500;
   }
 
@@ -176,7 +183,12 @@
     scrollbar-color: oklch(0.92 0.17 195) oklch(0.2 0.02 240);
   }
 }
-.lucide-chevron-down{
+.lucide-chevron-down {
   stroke: #fff;
   opacity: 1;
+}
+
+.buy-usdc-input {
+  outline: none !important;
+  box-shadow: none !important;
 }

@@ -248,11 +248,11 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
           <div className="space-y-2">
             {/* You Sell */}
             <div className="rounded-lg overflow-hidden p-6 relative z-1">
-              <Image src="trade-payment-box-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <img src="trade-payment-box-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <Label htmlFor="sell-amount" className="text-sm text-white/50 mb-2 block">
                 You sell
               </Label>
-              <InputGroup className={`border-0 my-4 ${amountError ? 'border-red-500' : ''}`}>
+              <InputGroup className={`border-0 my-4  buy-usdc-input ${amountError ? 'border-red-500' : ''}`}>
                 <InputGroupInput
                   id="sell-amount"
                   type="number"
@@ -267,7 +267,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                 <InputGroupAddon align="inline-end" className="pe-0">
                   <div className="flex items-center gap-2">
                     {tokenLogoURI ? (
-                      <Image src={tokenLogoURI} alt={tokenSymbol} width={24} height={24} className="rounded-full" />
+                      <img src={tokenLogoURI} alt={tokenSymbol} width={24} height={24} className="rounded-full" />
                     ) : (
                       <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500"></div>
                     )}
@@ -318,7 +318,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                           >
                             <div className="flex-shrink-0">
                               {logo ? (
-                                <Image src={logo} alt={name} width={32} height={32} className="rounded-full" />
+                                <img src={logo} alt={name} width={32} height={32} className="rounded-full" />
                               ) : (
                                 <span className="text-2xl">{icon}</span>
                               )}
@@ -337,11 +337,11 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
 
             {/* Your Receive */}
             <div className="bg-[#FFFFFF08] rounded-3xl p-6 relative z-1 overflow-hidden">
-              <Image src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <Label htmlFor="receive-amount" className="text-sm font-semibold text-white/50 mb-2.75 block">
                 Your receive
               </Label>
-              <InputGroup className="border-0">
+              <InputGroup className="border-0  buy-usdc-input">
                 <InputGroupInput
                   id="receive-amount"
                   type="text"
@@ -351,7 +351,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                   placeholder="0"
                 />
                 <InputGroupAddon align="inline-end" className="pe-0">
-                  <Image
+                  <img
                     src={fiatLogoURI}
                     alt={bid.fiatCurrency || 'Currency'}
                     width={24}
@@ -376,11 +376,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                     focus-visible:outline-none focus-visible:ring-0
                     data-[state=open]:ring-0 cursor-pointer relative z-1 "
                 >
-                  <Image
-                    src="buy-trade-payment-box-bg.png"
-                    className="absolute top-0 left-0 w-full h-full -z-1"
-                    alt=""
-                  />
+                  <img src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
                   <SelectValue className="text-white placeholder:text-white" placeholder="Select payment method" />
                 </SelectTrigger>
 
@@ -525,7 +521,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                           <div className="flex items-center gap-3">
                             <div className="flex-shrink-0">
                               {logo ? (
-                                <Image src={logo} alt={name} width={32} height={32} className="rounded-full" />
+                                <img src={logo} alt={name} width={32} height={32} className="rounded-full" />
                               ) : (
                                 <span className="text-2xl">{icon}</span>
                               )}

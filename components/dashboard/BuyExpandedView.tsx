@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { InputGroup, InputGroupInput, InputGroupAddon } from '@/components/ui/input-group';
-import { ArrowRight} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { BidsWithUsers } from '@/db/queries/bids';
 import { getTokenSymbol, getTokenByAddressAcrossChains } from '@/lib/tokens';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -179,32 +179,32 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
           <div className="space-y-2">
             {/* Your Pay */}
             <div className="relative z-1 rounded-3xl p-5">
-              <Image src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <div className="flex justify-between items-center mb-3">
                 <Label htmlFor="pay-amount" className="text-sm text-white/50 mb-2 block">
                   You pay
                 </Label>
                 <span className="text-sm font-medium leading-tight capitalize text-white/50">1 ETH $3,884.67</span>
               </div>
-              <InputGroup className={`border-0 ${amountError ? 'border-red-500' : ''}`}>
+              <InputGroup className={`border-0  buy-usdc-input ${amountError ? 'border-red-500' : ''}`}>
                 <InputGroupInput
                   id="pay-amount"
                   type="number"
                   step="0.01"
                   value={payAmount}
                   onChange={(e) => setPayAmount(e.target.value)}
-                  className="text-2xl lg:text-[32px] px-0 font-semibold h-auto outline-none!"
+                  className="text-2xl lg:text-[32px] px-0 font-semibold h-auto"
                   placeholder="0"
                   min={minFiatAmount}
                   max={maxFiatAmount}
                 />
                 <InputGroupAddon align="inline-end">
-                  <Image
+                  <img
                     src={fiatLogoURI}
                     alt={bid.fiatCurrency || 'Currency'}
                     width={24}
                     height={24}
-                    className="rounded-full bg-white"
+                    className="rounded-full bg-white  shadow-none!"
                   />
                   <span className="text-base font-medium text-white whitespace-nowrap">{bid.fiatCurrency}</span>
                 </InputGroupAddon>
@@ -214,14 +214,14 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
 
             {/* Your Receive */}
             <div className="relative z-1 rounded-3xl overflow-hidden p-6">
-              <Image src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
               <div className="flex justify-between items-center mb-3">
                 <Label htmlFor="receive-amount" className="text-sm text-muted-foreground mb-2 block">
                   You receive
                 </Label>
                 <span className="text-sm font-medium leading-tight capitalize text-white/50">1 BTC: $101,246.66</span>
               </div>
-              <InputGroup className="border-0">
+              <InputGroup className="border-0! buy-usdc-input">
                 <InputGroupInput
                   id="receive-amount"
                   type="text"
@@ -233,7 +233,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
                 <InputGroupAddon align="inline-end">
                   <div className="flex items-center gap-2">
                     {tokenLogoURI ? (
-                      <Image src={tokenLogoURI} alt={tokenSymbol} width={24} height={24} className="rounded-full" />
+                      <img src={tokenLogoURI} alt={tokenSymbol} width={24} height={24} className="rounded-full" />
                     ) : (
                       <div className="w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500"></div>
                     )}
@@ -245,11 +245,11 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
 
             {/* Payment Methods Section */}
             <div className="relative z-1 space-y-3">
-              <Image src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+              <img src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
 
               {/* Payment Method Selection */}
               {matchingPaymentAccounts.length > 0 ? (
-                <Select value={selectedPaymentMethodId} onValueChange={setSelectedPaymentMethodId}>                  
+                <Select value={selectedPaymentMethodId} onValueChange={setSelectedPaymentMethodId}>
                   <SelectTrigger className="w-full min-h-14 cursor-pointer text-base font-medium text-white capitalize bg-transparent p-5">
                     <SelectValue placeholder="Select payment method" />
                   </SelectTrigger>
@@ -282,20 +282,20 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full h-14 px-5! bg-transparent rounded-3xl flex  justify-between items-center gap-2 text-base font-medium"
+                className="w-full h-14 px-5! bg-transparent rounded-3xl flex  justify-between items-center gap-2 text-base font-medium border-0"
                 onClick={() => setIsAddPaymentDialogOpen(true)}
               >
                 <span className="flex items-center gap-2">
-                  <Image src="mastercard.svg" alt="" />
+                  <img src="mastercard.svg" alt="" />
                   Add Payment Method
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
                     d="M13 5.5L8 10.5L3 5.5"
                     stroke="#7E7F8C"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </Button>

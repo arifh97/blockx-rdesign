@@ -14,7 +14,7 @@ export function KYCWidget() {
       <div className="flex flex-col items-center text-center space-y-3">
         <div className="w-16 h-16  rounded-full shadow-[-10px_29px_54.6px_-11px_#071017] flex items-center justify-center  mb-10">
           {/* <ShieldCheck className="h-6 w-6 text-white" /> */}
-          <Image src="rocket.png" alt="" />
+          <img src="rocket.png" alt="" />
         </div>
 
         <div>
@@ -25,7 +25,7 @@ export function KYCWidget() {
         </div>
 
         <Button className="w-full min-h-12.5 group border border-[#FFFFFF0D] bg-transparent h-8 text-sm font-medium text-white relative overflow-hidden z-1">
-          <Image src="btn-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+          <img src="btn-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
           {/* <Download className="h-3 w-3 mr-1" /> */}
           Get Started
           <svg
