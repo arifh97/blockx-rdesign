@@ -55,7 +55,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
 
   return (
-    <div className="max-w-335 mx-auto space-y-6">
+    <div className="max-w-full mx-auto space-y-6">
       <Card className="p-6 rounded-3xl gap-y-2 bg-[#071017] backdrop-blur-[6px] overflow-hidden relative z-1 border border-solid border-[rgba(255,255,255,0.05)]">
         <img
           src="balance-card-shap.png"
