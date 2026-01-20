@@ -24,18 +24,10 @@ export function KYCWidget() {
           </p>
         </div>
 
-        <Button className="w-full min-h-12.5 group border border-[#FFFFFF0D] bg-transparent h-8 text-sm font-medium text-white hover:bg-[rgba(65,253,254,0.10)]! hover:border-[#41FDFE] relative overflow-hidden z-1">
-          <img src="btn-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+        <Button className="w-full min-h-12.5 group bg-[rgba(255,255,255,0.02)] border border-solid border-[rgba(255,255,255,0.05)] h-8 text-sm font-medium text-white hover:bg-[rgba(65,253,254,0.10)]! hover:border-[#41FDFE] relative overflow-hidden z-1 transition-all duration-300">
           {/* <Download className="h-3 w-3 mr-1" /> */}
           Get Started
-          <svg
-            className=""
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-          >
+          <svg className="" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
             <g clipPath="url(#clip0_2019_3139)">
               <path
                 d="M5.08743 5.401L3.35471 5.53487C2.87257 5.57213 2.44315 5.82483 2.17652 6.22814L0.178211 9.25046C-0.0240135 9.55632 -0.0561617 9.93909 0.0921575 10.2744C0.240516 10.6097 0.545396 10.8434 0.907698 10.8995L2.49421 11.1452C2.86534 9.1757 3.75377 7.21103 5.08743 5.401Z"

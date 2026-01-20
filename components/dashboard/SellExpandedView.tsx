@@ -247,8 +247,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
 
           <div className="space-y-2">
             {/* You Sell */}
-            <div className="rounded-lg overflow-hidden p-6 relative z-1">
-              <img src="trade-payment-box-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+            <div className="rounded-3xl overflow-hidden p-6 relative z-1  bg-[rgba(255,255,255,0.03)] border border-solid border-[rgba(255,255,255,0.02)]">
               <Label htmlFor="sell-amount" className="text-sm text-white/50 mb-2 block">
                 You sell
               </Label>
@@ -336,8 +335,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
             </div>
 
             {/* Your Receive */}
-            <div className="bg-[#FFFFFF08] rounded-3xl p-6 relative z-1 overflow-hidden">
-              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+            <div className="rounded-3xl p-6 relative z-1 overflow-hidden  bg-[rgba(255,255,255,0.03)] border border-solid border-[rgba(255,255,255,0.02)]">
               <Label htmlFor="receive-amount" className="text-sm font-semibold text-white/50 mb-2.75 block">
                 Your receive
               </Label>
@@ -364,20 +362,18 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
             </div>
 
             {/* Payment Method */}
-            <div className="space-y-3">
+            <div className="space-y-3 text-white!">
               <Select value={selectedPaymentMethodId} onValueChange={setSelectedPaymentMethodId}>
                 {/* Trigger */}
                 <SelectTrigger
-                  className="min-h-14 w-full rounded-3xl px-5
-                    bg-[#101B23] border-0 text-base
-                    text-white
+                  className="min-h-14 w-full rounded-3xl px-5  bg-[rgba(255,255,255,0.03)] border border-solid border-[rgba(255,255,255,0.02)]  text-base
+                    text-white!  placeholder:text-white!
                     outline-none ring-0
                     focus:outline-none focus:ring-0
                     focus-visible:outline-none focus-visible:ring-0
                     data-[state=open]:ring-0 cursor-pointer relative z-1 "
                 >
-                  <img src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
-                  <SelectValue className="text-white placeholder:text-white" placeholder="Select payment method" />
+                  <SelectValue className="text-white! placeholder:text-white!" placeholder="Select payment method" />
                 </SelectTrigger>
 
                 {/* Dropdown */}
@@ -427,7 +423,6 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                   </div>
 
                   {/* List */}
-                  {/* List */}
                   <div className="max-h-60 overflow-y-auto px-2 pb-2 space-y-2">
                     {filteredAccounts.length > 0 ? (
                       filteredAccounts.map((account) => {
@@ -448,7 +443,7 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                             key={account.id}
                             value={account.id}
                             className="rounded-xl px-4 py-3.5 text-sm
-                            text-[rgba(219,236,253,0.70)]
+                            text-white
                             focus:bg-[#FFFFFF0F]
                             bg-[rgba(255,255,255,0.01)]
                             data-[state=checked]:bg-[#FFFFFF14]
@@ -471,13 +466,8 @@ export function SellExpandedView({ bid }: SellExpandedViewProps) {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full bg-transparent border border-transparent border-solid relative z-1 h-14 text-white text-base font-medium rounded-3xl flex items-center justify-between gap-2 px-5!"
+                    className="w-full relative z-1 h-14 text-white text-base font-medium rounded-3xl flex items-center justify-between gap-2 px-5!  bg-[rgba(255,255,255,0.03)] border border-solid border-[rgba(255,255,255,0.02)]"
                   >
-                    <img
-                      src="buy-trade-payment-box-bg.png"
-                      className="absolute top-0 left-0 w-full h-full -z-1"
-                      alt=""
-                    />
                     Recipient's Wallet Network
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path

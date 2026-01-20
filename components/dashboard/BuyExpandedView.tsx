@@ -178,8 +178,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
 
           <div className="space-y-2">
             {/* Your Pay */}
-            <div className="relative z-1 rounded-3xl p-5">
-              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+            <div className="relative z-1 rounded-3xl p-5  bg-[rgba(255,255,255,0.03)] border border-solid border-[rgba(255,255,255,0.02)]">
               <div className="flex justify-between items-center mb-3">
                 <Label htmlFor="pay-amount" className="text-sm text-white/50 mb-2 block">
                   You pay
@@ -213,8 +212,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
             </div>
 
             {/* Your Receive */}
-            <div className="relative z-1 rounded-3xl overflow-hidden p-6">
-              <img src="trade-payment-box-bg4.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+            <div className="relative z-1 rounded-3xl overflow-hidden p-6  bg-[rgba(255,255,255,0.03)] border border-solid border-[rgba(255,255,255,0.02)]">
               <div className="flex justify-between items-center mb-3">
                 <Label htmlFor="receive-amount" className="text-sm text-muted-foreground mb-2 block">
                   You receive
@@ -244,9 +242,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
             </div>
 
             {/* Payment Methods Section */}
-            <div className="relative z-1 space-y-3">
-              <img src="buy-trade-payment-box-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
-
+            <div className="relative z-1 space-y-3 bg-[rgba(255,255,255,0.03)] border border-solid border-[rgba(255,255,255,0.02)] rounded-full">
               {/* Payment Method Selection */}
               {matchingPaymentAccounts.length > 0 ? (
                 <Select value={selectedPaymentMethodId} onValueChange={setSelectedPaymentMethodId}>
@@ -282,7 +278,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full h-14 px-5! bg-transparent rounded-3xl flex  justify-between items-center gap-2 text-base font-medium border-0"
+                className="w-full h-14 px-5! bg-transparent rounded-full flex  justify-between items-center gap-2 text-base font-medium border-0"
                 onClick={() => setIsAddPaymentDialogOpen(true)}
               >
                 <span className="flex items-center gap-2">
@@ -291,7 +287,7 @@ export function TradeExpandedView({ bid }: TradeExpandedViewProps) {
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
-                    d="M13 5.5L8 10.5L3 5.5"
+                    d="M5.5 3L10.5 8L5.5 13"
                     stroke="#7E7F8C"
                     strokeWidth="1.5"
                     strokeLinecap="round"
