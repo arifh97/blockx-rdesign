@@ -3,7 +3,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ShieldCheck, Download } from 'lucide-react';
-import Image from "next/image";
+import Image from 'next/image';
 
 export function KYCWidget() {
   return (
@@ -24,12 +24,12 @@ export function KYCWidget() {
           </p>
         </div>
 
-        <Button className="w-full min-h-12.5 group border border-[#FFFFFF0D] bg-transparent h-8 text-sm font-medium text-white relative overflow-hidden z-1">
+        <Button className="w-full min-h-12.5 group border border-[#FFFFFF0D] bg-transparent h-8 text-sm font-medium text-white hover:bg-[rgba(65,253,254,0.10)]! hover:border-[#41FDFE] relative overflow-hidden z-1">
           <img src="btn-bg2.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
           {/* <Download className="h-3 w-3 mr-1" /> */}
           Get Started
           <svg
-            className="group-hover:rotate-45 transition-all duration-300"
+            className=""
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"

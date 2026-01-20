@@ -69,7 +69,7 @@ export function Sidebar() {
                 'flex items-center gap-3 px-4 py-3 rounded-[100px] border text-sm font-medium transition-colors',
                 isActive
                   ? 'text-white bg-accent hover:text-foreground hover:bg-accent'
-                  : 'text-muted-foreground bg-accent hover:text-foreground hover:bg-accent'
+                  : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-accent'
               )}
             >
               <Icon className="h-5 w-5" />
