@@ -192,3 +192,9 @@
   outline: none !important;
   box-shadow: none !important;
 }
+.get-start-btn:hover svg path {
+  fill: #41fdfel !important;
+}
+.navigation-item svg.active path {
+  fill: #fff !important;
+}

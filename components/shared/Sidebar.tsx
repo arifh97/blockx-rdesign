@@ -1,49 +1,49 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Wallet } from 'lucide-react';
+import { dashboard, wallet, clock, referral, support, settings } from '../../lib/icons';
 import { cn } from '@/lib/utils';
 import { ActiveOrdersWidget } from '../dashboard/ActiveOrdersWidget';
 import { KYCWidget } from './KYCWidget';
+import { util } from 'zod';
 
 const navItems = [
   {
     name: 'Dashboard',
     href: '/dashboard',
-    icon: LayoutDashboard
+    icon: dashboard
   },
   {
     name: 'Wallet',
     href: '/wallet',
-    icon: Wallet
-  }
+    icon: wallet
+  },
   // {
   //   name: 'P2P Express',
   //   href: '/p2p-express',
-  //   icon: Zap
+  //   icon: clock
   // },
-  // {
-  //   name: 'History',
-  //   href: '/history',
-  //   icon: Clock
-  // },
-  // {
-  //   name: 'Referral Program',
-  //   href: '/referral',
-  //   icon: Gift
-  // },
-  // {
-  //   name: 'Support',
-  //   href: '/support',
-  //   icon: HelpCircle
-  // },
-  // {
-  //   name: 'Settings',
-  //   href: '/settings',
-  //   icon: Settings
-  // }
+  {
+    name: 'History',
+    href: '/history',
+    icon: clock
+  },
+  {
+    name: 'Referral Program',
+    href: '/referral',
+    icon: referral
+  },
+  {
+    name: 'Support',
+    href: '/support',
+    icon: support
+  },
+  {
+    name: 'Settings',
+    href: '/settings',
+    icon: settings
+  }
 ];
 
 export function Sidebar() {
@@ -66,13 +66,13 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 px-4 py-3 rounded-[100px] border text-sm font-medium transition-colors',
+                'navigation-item flex items-center gap-3 px-4 py-3 rounded-[100px] border text-sm font-medium transition-colors',
                 isActive
                   ? 'text-white bg-accent hover:text-foreground hover:bg-accent'
                   : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-accent'
               )}
             >
-              <Icon className="h-5 w-5" />
+              <Icon className={cn('h-6 w-6 transition-colors', isActive ? 'active ' : 'fill-muted-foreground')} />
               {item.name}
             </Link>
           );

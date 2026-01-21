@@ -105,14 +105,14 @@ export function TradingTable({ bids, currentPage, totalPages }: TradingTableProp
 
       <Table className="border-separate border-spacing-y-2">
         <TableHeader>
-          <TableRow className="bg-[#DBECFD08] rounded-xl">
+          <TableRow className="bg-[#DBECFD08] rounded-lg!">
             <TableHead className="w-12 rounded-l-xl">
-              <div className="w-4 h-4 border border-[#3E3F4A] rounded-sm" />
+              <div className="w-4 h-4 border border-[#7E7F8C] rounded-sm cursor-pointer hover:border-white transition-all duration-300" />
             </TableHead>
             <TableHead className="text-[#7E7F8C]">Seller</TableHead>
             <TableHead className="text-[#7E7F8C]">Price</TableHead>
             <TableHead className="text-[#7E7F8C]">Order Limit</TableHead>
-            <TableHead className="w-32 rounded-r-xl text-[#7E7F8C]">Status</TableHead>
+            <TableHead className="w-32 rounded-r-xl text-[#7E7F8C] text-center">Status</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
