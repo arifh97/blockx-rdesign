@@ -107,7 +107,7 @@ export function TradingTable({ bids, currentPage, totalPages }: TradingTableProp
         <TableHeader>
           <TableRow className="bg-[#DBECFD08] rounded-lg!">
             <TableHead className="w-12 rounded-l-xl">
-              <div className="w-4 h-4 border border-[#7E7F8C] rounded-sm cursor-pointer hover:border-white transition-all duration-300" />
+              <div className="w-5 h-5 ms-0.5 border border-[#7E7F8C] rounded-sm! cursor-pointer hover:border-white transition-all duration-300" />
             </TableHead>
             <TableHead className="text-[#7E7F8C]">Seller</TableHead>
             <TableHead className="text-[#7E7F8C]">Price</TableHead>
@@ -200,7 +200,7 @@ export function TradingTable({ bids, currentPage, totalPages }: TradingTableProp
                 </TableCell>
                 <TableCell className="rounded-r-xl">
                   <Button
-                    className="min-w-22.25 flex items-center gap-1.5 bg-[rgba(219,236,253,0.05)] border border-solid border-[rgba(219,236,253,0.10)] rounded-[7px] text-[#DBECFD] text-xs font-medium hover:bg-[rgba(219,236,253,0.10)] hover:border-[rgba(219,236,253,0.20)] transition-all duration-300"
+                    className="min-w-22.25 flex items-center gap-1.5 bg-[rgba(65,253,254,0.03)] border border-solid border-[rgba(219,236,253,0.10)] rounded-[7px] text-[#41FDFE] text-xs font-medium hover:bg-[rgba(219,236,253,0.10)] hover:border-[rgba(219,236,253,0.20)] transition-all duration-300"
                     variant="ghost"
                     size="sm"
                     onClick={() => toggleExpanded(bid.id)}

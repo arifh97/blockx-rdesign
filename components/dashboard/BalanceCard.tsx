@@ -15,7 +15,7 @@ interface BalanceCardProps {
 export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
   const chainId = useChainId();
   const supportedTokens = getTokensByChain(chainId);
-  
+
   // Initialize selected token from initialTokenAddress or default to NATIVE_TOKEN
   const [selectedToken, setSelectedToken] = useState<Token>(() => {
     if (initialTokenAddress) {
@@ -24,7 +24,7 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
     }
     return NATIVE_TOKEN;
   });
-  
+
   const { balance, isLoading } = useTokenBalance(selectedToken.address);
 
   // Format balance for display
@@ -74,7 +74,9 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
               }
             }}
           >
-            <SelectTrigger className="h-6 w-6 p-0 border-0 bg-transparent hover:bg-transparent focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 shadow-none data-[state=open]:ring-0 [&>svg]:opacity-100 [&>svg]:h-6 [&>svg]:w-6" />
+            <div className="h-7.75 w-7.75! bg-[rgba(255,255,255,0.04)] rounded-full inline-flex justify-center items-center p-0 border-transparent border-solid hover:border-white! transition-all cursor-pointer">
+              <SelectTrigger className="focus:ring-0 focus:ring-offset-0 focus-visible:ring-0  border-transparent bg-transparent shadow-none data-[state=open]:ring-0 [&>svg]:opacity-100 [&>svg]:h-6.75 [&>svg]:w-6.75 cursor-pointer" />
+            </div>
             <SelectContent>
               {supportedTokens.map((token) => (
                 <SelectItem key={token.address} value={token.address}>
@@ -88,26 +90,23 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
 
       {/* Action Buttons */}
       <div className="flex gap-3">
-        <Button className='w-32.5 h-11 text-base relative text-white bg-transparent'>
-          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+        <Button className="w-32.5 h-11 text-base relative text-white bg-transparent">
+          <img src="btn-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
           <img src="/icons/deposit.svg" alt="Deposit" width={15} height={15} />
           Deposit
         </Button>
-        <Button
-          asChild
-          className='w-[130px] h-[44px] text-base relative text-white bg-transparent'
-        >
+        <Button asChild className="w-[130px] h-[44px] text-base relative text-white bg-transparent">
           <Link href="/withdraw">
-          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
+            <img src="btn-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
             <img src="/icons/withdraw.svg" alt="Withdraw" width={15} height={15} />
             Withdraw
           </Link>
         </Button>
 
-        <Button className='w-[130px] h-[44px] text-base relative text-[#071017] bg-[#41FDFE]'>
-          <img src="btn-bg.png" className='absolute top-0 left-0 w-full h-full -z-1' alt="" />
-            <img src="swap.svg" alt="Withdraw" width={22} height={22} />
-            Swap
+        <Button className="w-[130px] h-[44px] text-base relative text-[#071017] bg-[#41FDFE]">
+          <img src="btn-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
+          <img src="swap.svg" alt="Withdraw" width={22} height={22} />
+          Swap
         </Button>
         {/* <Button className="min-w-[150px] min-h-[50px] text-md">
           <ArrowRightLeft className="size-6" />

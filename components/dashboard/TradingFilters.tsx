@@ -121,7 +121,7 @@ export function TradingFilters() {
           variant="ghost"
           size="sm"
           onClick={() => updateFilters('type', 'buy')}
-          className={`min-h-[50px] min-w-[100px] text-[17px] font-semibold capitalize rounded-[12px] px-6 transition-all border-0 ${
+          className={`min-h-[44.5px] min-w-[100px] text-[17px] font-semibold capitalize rounded-[12px] px-6 transition-all border-0 ${
             currentTradeType === 'buy'
               ? 'bg-primary text-black font-semibold hover:bg-primary/90'
               : 'text-muted-foreground bg-transparent'
@@ -133,7 +133,7 @@ export function TradingFilters() {
           variant="ghost"
           size="sm"
           onClick={() => updateFilters('type', 'sell')}
-          className={`min-h-[50px] min-w-[100px] text-[17px] font-semibold capitalize rounded-[12px] px-6 transition-all border-0 ${
+          className={`min-h-[44.5px] min-w-[100px] text-[17px] font-semibold capitalize rounded-[12px] px-6 transition-all border-0 ${
             currentTradeType === 'sell'
               ? 'bg-primary text-black font-semibold hover:bg-primary/90'
               : 'text-muted-foreground bg-transparent '
