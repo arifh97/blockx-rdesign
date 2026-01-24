@@ -43,9 +43,9 @@ export function Header() {
         <div className="flex-1 max-w-80">
           <div className="relative  shadow-none outline-none">
             <svg
-              className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"
-              width="24"
-              height="24"
+              className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -69,8 +69,8 @@ export function Header() {
 
             <Input
               placeholder="Search"
-              className="pl-10 bg-[rgba(219,236,253,0.04)] backdrop-blur-[25.013517379760742px] rounded-full border border-solid! border-[rgba(219,236,253,0.02)]! 
-              text-[rgba(219,236,253,0.50)] placeholder:text-[rgba(219,236,253,0.50)] shadow-none outline-none"
+              className="pl-10 pb-[6px] bg-[rgba(219,236,253,0.04)] backdrop-blur-[25.013517379760742px] rounded-full  border border-solid! border-[rgba(219,236,253,0.02)]! 
+              text-[rgba(219,236,253,0.50)] placeholder:text-[rgba(219,236,253,0.50)] shadow-none outline-none placeholder:text-base "
             />
           </div>
         </div>

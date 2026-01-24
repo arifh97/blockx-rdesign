@@ -92,20 +92,26 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
       <div className="flex gap-3">
         <Button className="w-32.5 h-11 text-base relative text-white bg-transparent">
           <img src="btn-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
-          <img src="/icons/deposit.svg" alt="Deposit" width={15} height={15} />
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M16.25 3.75L3.75 16.25M3.75 16.25H13.125M3.75 16.25V6.875" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
           Deposit
         </Button>
         <Button asChild className="w-[130px] h-[44px] text-base relative text-white bg-transparent">
           <Link href="/withdraw">
             <img src="btn-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
-            <img src="/icons/withdraw.svg" alt="Withdraw" width={15} height={15} />
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M3.75 16.25L16.25 3.75M16.25 3.75H6.875M16.25 3.75V13.125" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
             Withdraw
           </Link>
         </Button>
 
         <Button className="w-[130px] h-[44px] text-base relative text-[#071017] bg-[#41FDFE]">
           <img src="btn-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
-          <img src="swap.svg" alt="Withdraw" width={22} height={22} />
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M13.125 0.75L17.25 4.875M17.25 4.875L13.125 9M17.25 4.875L4.875 4.875M4.875 17.25L0.749999 13.125M0.749999 13.125L4.875 9M0.749999 13.125L13.125 13.125" stroke="#071017" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
           Swap
         </Button>
         {/* <Button className="min-w-[150px] min-h-[50px] text-md">

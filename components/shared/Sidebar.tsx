@@ -49,7 +49,7 @@ const navItems = [
 export function Sidebar() {
   const pathname = usePathname();
   return (
-    <aside className="w-81 bg-[#FFFFFF03] backdrop-blur-[27px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-r border-border h-auto min-h-screen sticky top-0 flex flex-col">
+    <aside className="w-81 bg-[#FFFFFF03] backdrop-blur-[27px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-r border-[rgba(255,255,255,0.01)] h-auto min-h-screen sticky top-0 flex flex-col">
       <div className="p-6 pt-8 mb-9.25">
         <Link href="/dashboard">
           <img src="/blockx-logo.svg" alt="BlockX" width={160} height={40} className="object-contain" />
@@ -66,7 +66,7 @@ export function Sidebar() {
               key={item.href}
               href={item.href}
               className={cn(
-                'navigation-item flex items-center gap-3 px-4 py-3 rounded-[100px] border text-sm font-medium transition-colors',
+                'navigation-item flex items-center gap-3 px-5 py-4 rounded-[100px] border text-sm lg:text-lg font-medium transition-colors',
                 isActive
                   ? 'text-white bg-accent hover:text-foreground hover:bg-accent'
                   : 'text-muted-foreground border-transparent hover:text-foreground hover:bg-accent'

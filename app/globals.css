@@ -198,3 +198,31 @@
 .navigation-item svg.active path {
   fill: #fff !important;
 }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #101B23 #0a1419;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* scrollbar er width */
+}
+
+::-webkit-scrollbar-track {
+  background: #101B23; /* track er color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.10); 
+  border-radius: 4px; /* optional: rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; /* hover state e ektu lighter */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.10) #101B23; /* thumb color, track color */
+}

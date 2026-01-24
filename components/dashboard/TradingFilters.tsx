@@ -127,7 +127,7 @@ export function TradingFilters() {
               : 'text-muted-foreground bg-transparent'
           }`}
         >
-          Buy
+          Buy Crypto
         </Button>
         <Button
           variant="ghost"
@@ -139,7 +139,7 @@ export function TradingFilters() {
               : 'text-muted-foreground bg-transparent '
           }`}
         >
-          Sell
+          Sell crypto
         </Button>
       </div>
     </div>

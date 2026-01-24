@@ -12,58 +12,38 @@ export function KYCWidget() {
       style={{ backgroundImage: 'url(/kyc-card-bg.png)', backgroundSize: '100% 100%' }}
     >
       <div className="flex flex-col items-center text-center space-y-3">
-        <div className="w-16 h-16  rounded-full shadow-[-10px_29px_54.6px_-11px_#071017] flex items-center justify-center  mb-10">
+        <div className="w-16 h-16  rounded-full shadow-[-10px_29px_54.6px_-11px_#071017] flex items-center justify-center  mb-9">
           {/* <ShieldCheck className="h-6 w-6 text-white" /> */}
-          <img src="rocket.png" alt="" />
+          <img src="kyc-check.png" alt="" />
         </div>
 
         <div>
-          <h3 className="font-semibold text-sm md:text-2xl mb-2.5">Trade Smarter with</h3>
+          <h3 className="font-semibold text-sm md:text-2xl mb-2.5">Complete KYC</h3>
           <p className="text-xs md:text-base text-white/50 font-normal mb-2">
-            Trade smarter with Block — fast, secure crypto trading.
+            Verify your identity to unlock higher limits and send up to $50,000.
           </p>
         </div>
 
         <Button
-          className="get-start-btn w-full min-h-12.5 group bg-[rgba(255,255,255,0.02)] border border-solid border-[rgba(255,255,255,0.05)] h-8 text-sm font-medium text-white
-         hover:bg-[rgba(65,253,254,0.10)]! hover:border-[#41FDFE] hover:text-[#41FDFE] relative overflow-hidden z-1 transition-all duration-300"
+          className="get-start-btn relative z-1 w-full min-h-12.5 group bg-[rgba(255,255,255,0.02)] border border-solid border-[rgba(255,255,255,0.05)] h-8 text-sm lg:text-base font-medium text-white
+         hover:bg-[rgba(65,253,254,0.10)]! hover:border-[#41FDFE] relative overflow-hidden z-1 transition-all duration-300 flex items-center justify-center gap-3"
         >
-          {/* <Download className="h-3 w-3 mr-1" /> */}
-          Get Started
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path
-              d="M5.08743 5.40105L3.35471 5.53492C2.87257 5.57218 2.44315 5.82488 2.17652 6.22819L0.178211 9.25051C-0.0240135 9.55637 -0.0561617 9.93914 0.0921575 10.2745C0.240516 10.6098 0.545396 10.8434 0.907698 10.8996L2.49421 11.1453C2.86534 9.17575 3.75377 7.21108 5.08743 5.40105Z"
-              fill="white"
-            />
-            <path
-              d="M8.85471 17.5058L9.10045 19.0923C9.15658 19.4546 9.39025 19.7595 9.72552 19.9078C9.86501 19.9695 10.0127 20 10.1596 20C10.3659 20 10.5709 19.9398 10.7495 19.8217L13.7719 17.8235C14.1752 17.5568 14.4279 17.1273 14.4651 16.6453L14.599 14.9125C12.7889 16.2462 10.8243 17.1347 8.85471 17.5058Z"
-              fill="white"
-            />
-            <path
-              d="M8.25803 16.4061C8.31311 16.4061 8.3685 16.4016 8.42377 16.3924C9.24892 16.2544 10.0442 16.022 10.8029 15.7178L4.28224 9.19711C3.97803 9.95574 3.74561 10.751 3.60764 11.5762C3.55326 11.9015 3.66236 12.2329 3.89553 12.4661L7.53394 16.1045C7.72753 16.298 7.98881 16.4061 8.25803 16.4061Z"
-              fill="white"
-            />
-            <path
-              d="M18.4053 8.86724C20.0009 5.78234 20.06 2.52236 19.9766 0.993469C19.9481 0.469606 19.5304 0.0519527 19.0065 0.0233983C18.7576 0.00980461 18.4625 0 18.13 0C16.4204 0 13.7153 0.258943 11.1327 1.59475C9.08033 2.65635 6.38906 4.99387 4.80126 8.06579C4.82001 8.08044 4.83833 8.09599 4.8556 8.11326L11.8868 15.1445C11.9041 15.1617 11.9196 15.18 11.9342 15.1987C15.0061 13.6109 17.3437 10.9196 18.4053 8.86724ZM11.6287 4.22809C12.771 3.08587 14.6296 3.08576 15.7719 4.22809C16.3252 4.78141 16.63 5.51714 16.63 6.29968C16.63 7.08221 16.3252 7.81795 15.7719 8.37126C15.2008 8.94231 14.4504 9.2279 13.7003 9.22797C12.95 9.22801 12.2 8.94247 11.6287 8.37126C11.0754 7.81795 10.7706 7.08221 10.7706 6.29968C10.7706 5.51714 11.0754 4.78141 11.6287 4.22809Z"
-              fill="white"
-            />
-            <path
-              d="M12.4574 7.54262C13.1427 8.22797 14.258 8.22801 14.9433 7.54262C15.2753 7.21059 15.4582 6.76918 15.4582 6.29965C15.4582 5.83012 15.2753 5.38871 14.9433 5.05672C14.6007 4.71403 14.1505 4.5427 13.7003 4.5427C13.2502 4.5427 12.8001 4.71403 12.4574 5.05672C12.1254 5.38871 11.9425 5.83012 11.9425 6.29965C11.9425 6.76918 12.1254 7.21063 12.4574 7.54262Z"
-              fill="white"
-            />
-            <path
-              d="M0.597861 16.4818C0.747822 16.4818 0.897783 16.4247 1.01216 16.3102L2.92517 14.3972C3.15399 14.1684 3.15399 13.7974 2.92517 13.5686C2.69638 13.3397 2.32536 13.3397 2.09653 13.5686L0.183525 15.4816C-0.0453028 15.7104 -0.0453028 16.0814 0.183525 16.3102C0.297939 16.4246 0.4479 16.4818 0.597861 16.4818Z"
-              fill="white"
-            />
-            <path
-              d="M4.67833 15.3217C4.44954 15.0929 4.07853 15.0929 3.8497 15.3217L0.171768 18.9996C-0.0570606 19.2285 -0.0570606 19.5995 0.171768 19.8283C0.286182 19.9427 0.436143 19.9999 0.586103 19.9999C0.736064 19.9999 0.886026 19.9427 1.0004 19.8282L4.67829 16.1504C4.90716 15.9215 4.90716 15.5505 4.67833 15.3217Z"
-              fill="white"
-            />
-            <path
-              d="M5.6028 17.0749L3.68983 18.9879C3.461 19.2167 3.461 19.5877 3.68983 19.8165C3.80424 19.9309 3.9542 19.9881 4.10412 19.9881C4.25405 19.9881 4.40404 19.931 4.51842 19.8165L6.43143 17.9035C6.66026 17.6747 6.66026 17.3037 6.43143 17.0749C6.20264 16.846 5.83162 16.846 5.6028 17.0749Z"
-              fill="white"
-            />
-          </svg>
+          <span className="
+            pointer-events-none
+            absolute inset-0
+            rounded-[inherit]
+            p-[1px]
+            before:absolute before:inset-0
+            before:rounded-[inherit]
+            before:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0),rgba(255,255,255,0.05))]
+            before:content-['']
+            z-[-1]
+          "
+        />
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.75 14.25V16.5C0.75 17.0967 0.987053 17.669 1.40901 18.091C1.83097 18.5129 2.40326 18.75 3 18.75H16.5C17.0967 18.75 17.669 18.5129 18.091 18.091C18.5129 17.669 18.75 17.0967 18.75 16.5V14.25M5.25 5.25L9.75 0.75M9.75 0.75L14.25 5.25M9.75 0.75V14.25" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+          Start Verification          
         </Button>
       </div>
     </Card>

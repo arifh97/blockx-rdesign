@@ -106,13 +106,13 @@ export function TradingTable({ bids, currentPage, totalPages }: TradingTableProp
       <Table className="border-separate border-spacing-y-2">
         <TableHeader>
           <TableRow className="bg-[#DBECFD08] rounded-lg!">
-            <TableHead className="w-12 rounded-l-xl">
+            <TableHead className="w-12 rounded-l-lg">
               <div className="w-5 h-5 ms-0.5 border border-[#7E7F8C] rounded-sm! cursor-pointer hover:border-white transition-all duration-300" />
             </TableHead>
             <TableHead className="text-[#7E7F8C]">Seller</TableHead>
             <TableHead className="text-[#7E7F8C]">Price</TableHead>
             <TableHead className="text-[#7E7F8C]">Order Limit</TableHead>
-            <TableHead className="w-32 rounded-r-xl text-[#7E7F8C] text-center">Status</TableHead>
+            <TableHead className="w-32 rounded-r-lg text-[#7E7F8C] text-center">Status</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -122,7 +122,7 @@ export function TradingTable({ bids, currentPage, totalPages }: TradingTableProp
                 key={bid.id}
                 className={`rounded-xl ${index % 2 === 0 ? 'bg-[#0D171E]/20' : 'bg-[#0D171E]/60'}`}
               >
-                <TableCell className="rounded-l-xl">
+                <TableCell className="rounded-l-lg">
                   <button onClick={() => toggleFavorite(bid.id)} className="cursor-pointer transition-colors">
                     {favorites.has(bid.id) ? (
                       // ACTIVE (filled) ICON
@@ -198,7 +198,7 @@ export function TradingTable({ bids, currentPage, totalPages }: TradingTableProp
                     })()}
                   </p>
                 </TableCell>
-                <TableCell className="rounded-r-xl">
+                <TableCell className="rounded-r-lg">
                   <Button
                     className="min-w-22.25 flex items-center gap-1.5 bg-[rgba(65,253,254,0.03)] border border-solid border-[rgba(219,236,253,0.10)] rounded-[7px] text-[#41FDFE] text-xs font-medium hover:bg-[rgba(219,236,253,0.10)] hover:border-[rgba(219,236,253,0.20)] transition-all duration-300"
                     variant="ghost"
