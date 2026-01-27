@@ -87,9 +87,9 @@ export function ChainSwitcher() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-2 text-white rounded-full bg-[#02101152] px-4">
+        <Button variant="ghost" size="sm" className="gap-2 text-white rounded-full bg-[#02101152] px-4 hover:text-[#28A6AE] hover:border-[#28A6AE] py-6!">
           
-          <span className="flex items-center align-middle font-medium">
+          <span className="">
             {currentChain ? (
               <>
                 {currentChain.logo ? (

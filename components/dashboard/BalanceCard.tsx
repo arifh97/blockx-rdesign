@@ -2,12 +2,12 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
 import { useTokenBalance } from '@/hooks/use-token-balance';
 import { getTokensByChain, NATIVE_TOKEN, type Token } from '@/lib/tokens';
 import { useChainId } from 'wagmi';
+
 interface BalanceCardProps {
   initialTokenAddress?: string;
 }
@@ -16,7 +16,6 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
   const chainId = useChainId();
   const supportedTokens = getTokensByChain(chainId);
 
-  // Initialize selected token from initialTokenAddress or default to NATIVE_TOKEN
   const [selectedToken, setSelectedToken] = useState<Token>(() => {
     if (initialTokenAddress) {
       const token = supportedTokens.find((t) => t.address.toLowerCase() === initialTokenAddress.toLowerCase());
@@ -27,21 +26,15 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
 
   const { balance, isLoading } = useTokenBalance(selectedToken.address);
 
-  // Format balance for display
-  // If balance < 1: show up to 4 decimal places, remove trailing zeros (e.g. 0.1234, 0.12)
-  // If balance >= 1: always show 2 decimal places (e.g. 7,000.00)
-  // Never remove significant digits
   const formatBalance = useMemo(() => {
     const num = parseFloat(balance);
     if (isNaN(num)) return { whole: '0', decimal: '00' };
 
     if (num >= 1) {
-      // Always show 2 decimals for >= 1
       const parts = num.toFixed(2).split('.');
       const whole = parseFloat(parts[0]).toLocaleString('en-US');
       return { whole, decimal: parts[1] };
     } else {
-      // Show up to 4 decimals, remove trailing zeros
       const parts = num.toFixed(4).split('.');
       const whole = parts[0];
       const decimal = (parts[1] || '').replace(/0+$/, '');
@@ -49,12 +42,15 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
     }
   }, [balance]);
 
+  // Track Select open state for arrow rotation
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="flex items-start justify-between">
       {/* Balance Section */}
       <div>
         <p className="text-sm lg:text-lg font-medium mb-1 text-white/50">Balance</p>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 relative z-1">
           <h2 className="text-2xl lg:text-[34px] font-medium text-white flex">
             {isLoading ? (
               'Loading...'
@@ -65,18 +61,19 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
               </>
             )}
           </h2>
+
+          {/* Select Dropdown */}
           <Select
             value={selectedToken.address}
             onValueChange={(value) => {
               const token = supportedTokens.find((t) => t.address === value);
-              if (token) {
-                setSelectedToken(token);
-              }
+              if (token) setSelectedToken(token);
             }}
+            onOpenChange={(open) => setIsOpen(open)}
           >
-            <div className="h-7.75 w-7.75! bg-[rgba(255,255,255,0.04)] rounded-full inline-flex justify-center items-center p-0 border-transparent border-solid hover:border-white! transition-all cursor-pointer">
-              <SelectTrigger className="focus:ring-0 focus:ring-offset-0 focus-visible:ring-0  border-transparent bg-transparent shadow-none data-[state=open]:ring-0 [&>svg]:opacity-100 [&>svg]:h-6.75 [&>svg]:w-6.75 cursor-pointer" />
-            </div>
+            <SelectTrigger className={`size-7.75! absolute -right-12 top-1/2 -translate-y-1/2 cursor-pointer! bg-[rgba(255,255,255,0.04)] rounded-full inline-flex justify-center items-center p-0 border-none transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+            </SelectTrigger>
+
             <SelectContent>
               {supportedTokens.map((token) => (
                 <SelectItem key={token.address} value={token.address}>
@@ -97,6 +94,7 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
           </svg>
           Deposit
         </Button>
+
         <Button asChild className="w-[130px] h-[44px] text-base relative text-white bg-transparent">
           <Link href="/withdraw">
             <img src="btn-bg.png" className="absolute top-0 left-0 w-full h-full -z-1" alt="" />
@@ -114,10 +112,6 @@ export function BalanceCard({ initialTokenAddress }: BalanceCardProps) {
           </svg>
           Swap
         </Button>
-        {/* <Button className="min-w-[150px] min-h-[50px] text-md">
-          <ArrowRightLeft className="size-6" />
-          Swap
-        </Button> */}
       </div>
     </div>
   );

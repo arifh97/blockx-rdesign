@@ -52,8 +52,8 @@ export function VaultManager() {
         {/* Page Header */}
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Your Wallet</h1>
-            <p className="text-muted-foreground mt-1 text-sm md:text-base">
+            <h1 className="text-xl md:text-2xl font-medium capitalize">Your Wallet</h1>
+            <p className="mt-2.5 text-sm md:text-base text-[rgba(219,236,253,0.50)] leading-relaxed">
               View your total balance and manage funds in trade or available for new offers.
             </p>
           </div>

@@ -37,34 +37,21 @@ export function Header() {
   const displayName = dbUser?.username || dbUser?.email || shortAddress;
   const displaySecondary = dbUser?.username || dbUser?.email ? shortAddress : dbUser?.email || '';
   return (
-    <header className="h-23.75 top-0 z-10 bg-[rgba(255,255,255,0.01)] backdrop-blur-[27.5px] border-b border-solid border-[rgba(255,255,255,0.02)]">
+    <header className="h-23.75 top-0 z-10 bg-[rgba(255,255,255,0.01)] border-b border-solid border-[rgba(255,255,255,0.02)]">
       <div className="h-full px-6 flex items-center justify-between">
         {/* Search */}
         <div className="flex-1 max-w-80">
-          <div className="relative  shadow-none outline-none">
-            <svg
-              className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clipPath="url(#clip0_2019_5952)">
-                <circle cx="9.16669" cy="9.16667" r="7.5" stroke="#DBECFD" strokeOpacity="0.5" strokeWidth="1.5" />
-                <path
-                  d="M18.1767 17.479C18.1244 17.5579 18.03 17.6523 17.8411 17.8412C17.6523 18.03 17.5579 18.1244 17.479 18.1767C17.0168 18.4827 16.3916 18.325 16.1299 17.8363C16.0853 17.7529 16.0469 17.625 15.9703 17.3692C15.8865 17.0896 15.8446 16.9499 15.8365 16.8515C15.7889 16.2724 16.2723 15.7889 16.8515 15.8365C16.9498 15.8446 17.0896 15.8865 17.3691 15.9703C17.625 16.0469 17.7529 16.0853 17.8363 16.1299C18.325 16.3916 18.4827 17.0168 18.1767 17.479Z"
-                  stroke="#DBECFD"
-                  strokeOpacity="0.5"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_2019_5952">
-                  <rect width="20" height="20" fill="white" />
-                </clipPath>
-              </defs>
+          <div className="relative  shadow-none outline-none z-1">
+            <svg className="absolute z-2 left-4 top-1/2 -translate-y-1/2 h-5 w-5" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_2019_10548)">
+            <circle cx="9.16675" cy="9.16667" r="7.5" stroke="#DBECFD" strokeOpacity="0.5" strokeWidth="1.5"/>
+            <path d="M18.1766 17.479C18.1243 17.5579 18.0299 17.6523 17.8411 17.8412C17.6522 18.03 17.5578 18.1244 17.4789 18.1767C17.0168 18.4827 16.3915 18.325 16.1299 17.8363C16.0852 17.7529 16.0469 17.625 15.9702 17.3692C15.8864 17.0896 15.8446 16.9499 15.8365 16.8515C15.7888 16.2724 16.2723 15.7889 16.8514 15.8365C16.9498 15.8446 17.0895 15.8865 17.3691 15.9703C17.6249 16.0469 17.7528 16.0853 17.8363 16.1299C18.3249 16.3916 18.4826 17.0168 18.1766 17.479Z" stroke="#DBECFD" strokeOpacity="0.5" strokeWidth="1.5" stroke-linecap="round"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_2019_10548">
+            <rect width="20" height="20" fill="white"/>
+            </clipPath>
+            </defs>
             </svg>
 
             <Input
@@ -77,7 +64,7 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
-          <div className="hidden">
+          <div>
             <ChainSwitcher />
           </div>
 
