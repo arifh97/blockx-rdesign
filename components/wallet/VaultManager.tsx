@@ -156,17 +156,17 @@ export function VaultManager() {
                     <div className="overflow-x-auto -mx-2 sm:mx-0">
                       <Table className="border-separate border-spacing-y-2">
                         <TableHeader>
-                          <TableRow className="bg-[#DBECFD08] rounded-xl hover:bg-[#DBECFD08]">
-                            <TableHead className="text-[#7E7F8C] font-normal rounded-l-xl text-sm sm:text-base">
+                          <TableRow className="bg-[#DBECFD08] rounded-lg hover:bg-[#DBECFD08]">
+                            <TableHead className="text-[#7E7F8C] font-medium rounded-l-lg text-sm sm:text-base">
                               Token
                             </TableHead>
-                            <TableHead className="text-right text-[#7E7F8C] font-normal text-sm sm:text-base">
+                            <TableHead className="text-right text-[#7E7F8C] font-medium text-sm sm:text-base">
                               Available
                             </TableHead>
-                            <TableHead className="text-right text-[#7E7F8C] font-normal text-sm sm:text-base">
+                            <TableHead className="text-right text-[#7E7F8C] font-medium text-sm sm:text-base">
                               In trade
                             </TableHead>
-                            <TableHead className="text-right text-[#7E7F8C] font-normal rounded-r-xl text-sm sm:text-base">
+                            <TableHead className="text-right text-[#7E7F8C] font-medium rounded-r-lg text-sm sm:text-base">
                               Total
                             </TableHead>
                           </TableRow>
@@ -181,9 +181,9 @@ export function VaultManager() {
                             return (
                               <TableRow
                                 key={balance.token.address}
-                                className={`rounded-xl ${index % 2 === 0 ? 'bg-[#0D171E]/20' : 'bg-[#0D171E]/60'}`}
+                                className={`rounded-lg ${index % 2 === 0 ? 'bg-[#0D171E]/20' : 'bg-[#0D171E]/60'}`}
                               >
-                                <TableCell className="rounded-l-xl">
+                                <TableCell className="rounded-l-lg">
                                   <div className="flex items-center gap-2 sm:gap-3">
                                     <Avatar className="h-8 w-8 sm:h-9 sm:w-9">
                                       <AvatarImage src={balance.token.logoURI} alt={balance.token.symbol} />
@@ -192,7 +192,7 @@ export function VaultManager() {
                                       </AvatarFallback>
                                     </Avatar>
                                     <div className="min-w-0">
-                                      <p className="font-medium text-sm sm:text-base">{balance.token.symbol}</p>
+                                      <p className="font-medium text-sm sm:text-[17px] capitalize">{balance.token.symbol}</p>
                                       <p className="text-xs text-muted-foreground hidden sm:block">
                                         {balance.token.name}
                                       </p>
@@ -201,7 +201,7 @@ export function VaultManager() {
                                 </TableCell>
                                 <TableCell className="text-right">
                                   <span
-                                    className={`text-xs sm:text-sm ${balance.available > BigInt(0) ? 'font-medium' : 'text-muted-foreground'}`}
+                                    className={`text-sm sm:text-base font-medium capitalize text-white/80 ${balance.available > BigInt(0) ? 'font-medium' : 'text-muted-foreground'}`}
                                   >
                                     {balance.availableFormatted}{' '}
                                     <span className="hidden sm:inline">{balance.token.symbol}</span>
@@ -209,15 +209,15 @@ export function VaultManager() {
                                 </TableCell>
                                 <TableCell className="text-right">
                                   <span
-                                    className={`text-xs sm:text-sm ${balance.totalLocked > BigInt(0) ? 'font-medium' : 'text-muted-foreground'}`}
+                                    className={`text-sm sm:text-base font-medium capitalize text-white/80 ${balance.totalLocked > BigInt(0) ? 'font-medium' : 'text-muted-foreground'}`}
                                   >
                                     {balance.totalLockedFormatted}{' '}
                                     <span className="hidden sm:inline">{balance.token.symbol}</span>
                                   </span>
                                 </TableCell>
-                                <TableCell className="text-right rounded-r-xl">
+                                <TableCell className="text-right rounded-r-lg">
                                   <span
-                                    className={`text-xs sm:text-sm ${total > BigInt(0) ? 'font-semibold' : 'text-muted-foreground'}`}
+                                    className={`text-sm sm:text-base font-medium capitalize text-white/80 ${total > BigInt(0) ? 'font-semibold' : 'text-muted-foreground'}`}
                                   >
                                     {totalFormatted} <span className="hidden sm:inline">{balance.token.symbol}</span>
                                   </span>
