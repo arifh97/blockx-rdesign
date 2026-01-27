@@ -84,66 +84,71 @@ export function VaultManager() {
                   <>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       {/* Total */}
-                      <div className="space-y-1 flex-1 min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-xs sm:text-sm text-muted-foreground">Total</span>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Info className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-muted-foreground cursor-help" />
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>Total balance in your vault</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </div>
-                        <p className="text-2xl sm:text-3xl font-semibold">
+                      <div className="space-y-1 flex-1 min-w-0 rounded-[29.941px] border border-white/05 p-5.5 bg-[rgba(219,236,253,0.07)] backdrop-blur-[6px]">
+                      <div className='flex items-center gap-4'>
+                        <p className="text-2xl md:text-[34px] font-semibold">
                           ${' '}
                           {totalVaultBalance.toLocaleString('en-US', {
                             minimumFractionDigits: 0,
                             maximumFractionDigits: 0
                           })}
                         </p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                          <path d="M14.625 6.1875L9 11.8125L3.375 6.1875" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                       </div>
-
-                      {/* Available */}
-                      <div className="space-y-1 flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs sm:text-sm text-muted-foreground">Available</span>
+                          <span className="text-sm sm:text-lg text-muted-foreground">Total</span>
                           <Tooltip>
                             <TooltipTrigger asChild>
                               <Info className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-muted-foreground cursor-help" />
                             </TooltipTrigger>
-                            <TooltipContent>
-                              <p>Funds available for new orders</p>
+                            <TooltipContent className='bg-[#111A22] py-2.5 rounded-xl text-white/50 text-[13px] leading-relaxed'>
+                              <p>Total balance in your wallet.</p>
                             </TooltipContent>
                           </Tooltip>
                         </div>
-                        <p className="text-2xl sm:text-3xl font-semibold">
+                      </div>
+
+                      {/* Available */}
+                      <div className="space-y-1 flex-1 min-w-0 rounded-[29.941px] p-5.5">
+                        <p className="text-2xl md:text-[34px]  font-semibold">
                           ${' '}
                           {totalAvailable.toLocaleString('en-US', {
                             minimumFractionDigits: 0,
                             maximumFractionDigits: 0
                           })}
                         </p>
-                      </div>
-
-                      {/* In Trade */}
-                      <div className="space-y-1 flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs sm:text-sm text-muted-foreground">In trade</span>
+                          <span className="text-sm sm:text-lg text-muted-foreground">Available</span>
                           <Tooltip>
                             <TooltipTrigger asChild>
                               <Info className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-muted-foreground cursor-help" />
                             </TooltipTrigger>
-                            <TooltipContent>
-                              <p>Funds locked in active orders</p>
+                            <TooltipContent className='bg-[#111A22] py-2.5 rounded-xl text-white/50 text-[13px] leading-relaxed'>
+                              <p>Funds temporarily held for active trades.</p>
                             </TooltipContent>
                           </Tooltip>
                         </div>
-                        <p className="text-2xl sm:text-3xl font-semibold">
+                      </div>
+
+                      {/* In Trade */}
+                      <div className="space-y-1 flex-1 min-w-0 rounded-[29.941px] p-5.5">
+                        <p className="text-2xl  md:text-[34px] font-semibold">
                           ${' '}
                           {totalInTrade.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                         </p>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-sm sm:text-lg text-muted-foreground">In trade</span>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Info className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-muted-foreground cursor-help" />
+                            </TooltipTrigger>
+                            <TooltipContent className='bg-[#111A22] py-2.5 rounded-xl text-white/50 text-[13px] leading-relaxed'>
+                              <p>Funds you can use to create new offers or withdraw anytime.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </div>
                       </div>
                     </div>
 
@@ -152,16 +157,16 @@ export function VaultManager() {
                       <Table className="border-separate border-spacing-y-2">
                         <TableHeader>
                           <TableRow className="bg-[#DBECFD08] rounded-xl hover:bg-[#DBECFD08]">
-                            <TableHead className="text-[#7E7F8C] font-normal rounded-l-xl text-xs sm:text-sm">
+                            <TableHead className="text-[#7E7F8C] font-normal rounded-l-xl text-sm sm:text-base">
                               Token
                             </TableHead>
-                            <TableHead className="text-right text-[#7E7F8C] font-normal text-xs sm:text-sm">
+                            <TableHead className="text-right text-[#7E7F8C] font-normal text-sm sm:text-base">
                               Available
                             </TableHead>
-                            <TableHead className="text-right text-[#7E7F8C] font-normal text-xs sm:text-sm">
+                            <TableHead className="text-right text-[#7E7F8C] font-normal text-sm sm:text-base">
                               In trade
                             </TableHead>
-                            <TableHead className="text-right text-[#7E7F8C] font-normal rounded-r-xl text-xs sm:text-sm">
+                            <TableHead className="text-right text-[#7E7F8C] font-normal rounded-r-xl text-sm sm:text-base">
                               Total
                             </TableHead>
                           </TableRow>
